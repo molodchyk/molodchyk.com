@@ -267,6 +267,9 @@ const fallbackRepos = [
 
 const themeModes = ['system', 'bright', 'dark'];
 const themeStorageKey = 'siteThemeMode';
+const supportedLanguages = Object.keys(translations);
+const languageStorageKey = 'siteLanguage';
+const languageSourceStorageKey = 'siteLanguageSource';
 
 function readStorage(key) {
   try {
@@ -339,19 +342,49 @@ function initializeThemeSwitcher() {
   }
 }
 
-function getSavedLanguage() {
-  const saved = readStorage('siteLanguage');
-  if (saved && translations[saved]) {
-    return saved;
+function normalizeLanguage(value) {
+  if (!value || typeof value !== 'string') {
+    return null;
   }
 
-  const browserLanguage = navigator.language?.slice(0, 2);
-  return translations[browserLanguage] ? browserLanguage : 'en';
+  const language = value.toLowerCase();
+  if (supportedLanguages.includes(language)) {
+    return language;
+  }
+
+  const baseLanguage = language.split('-')[0];
+  return supportedLanguages.includes(baseLanguage) ? baseLanguage : null;
 }
 
-function applyLanguage(language) {
-  const dictionary = translations[language] || translations.en;
-  document.documentElement.lang = language;
+function getSystemLanguage() {
+  const languages = Array.isArray(navigator.languages) && navigator.languages.length > 0
+    ? navigator.languages
+    : [navigator.language];
+
+  for (const language of languages) {
+    const supportedLanguage = normalizeLanguage(language);
+    if (supportedLanguage) {
+      return supportedLanguage;
+    }
+  }
+
+  return 'en';
+}
+
+function getSavedLanguage() {
+  const saved = normalizeLanguage(readStorage(languageStorageKey));
+  const source = readStorage(languageSourceStorageKey);
+  return saved && source === 'manual' ? saved : null;
+}
+
+function getInitialLanguage() {
+  return getSavedLanguage() || getSystemLanguage();
+}
+
+function applyLanguage(language, options = {}) {
+  const selectedLanguage = normalizeLanguage(language) || getSystemLanguage();
+  const dictionary = translations[selectedLanguage] || translations.en;
+  document.documentElement.lang = selectedLanguage;
   document.querySelectorAll('[data-i18n]').forEach(element => {
     const key = element.dataset.i18n;
     if (dictionary[key]) {
@@ -360,10 +393,13 @@ function applyLanguage(language) {
   });
 
   document.querySelectorAll('[data-language]').forEach(button => {
-    button.setAttribute('aria-pressed', String(button.dataset.language === language));
+    button.setAttribute('aria-pressed', String(button.dataset.language === selectedLanguage));
   });
 
-  writeStorage('siteLanguage', language);
+  if (options.persist) {
+    writeStorage(languageStorageKey, selectedLanguage);
+    writeStorage(languageSourceStorageKey, 'manual');
+  }
 }
 
 function formatRepoDate(value, language) {
@@ -438,7 +474,7 @@ function initializeLanguageSwitcher() {
   document.querySelectorAll('[data-language]').forEach(button => {
     button.addEventListener('click', () => {
       const language = button.dataset.language;
-      applyLanguage(language);
+      applyLanguage(language, { persist: true });
       loadGithubRepos(language);
     });
   });
@@ -457,7 +493,7 @@ const initialThemeMode = getSavedThemeMode();
 applyThemeMode(initialThemeMode);
 initializeThemeSwitcher();
 
-const initialLanguage = getSavedLanguage();
+const initialLanguage = getInitialLanguage();
 applyLanguage(initialLanguage);
 initializeLanguageSwitcher();
 initializeYear();
