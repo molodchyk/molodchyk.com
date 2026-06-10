@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Oleksandr Molodchyk builds practical software, browser tools, and local-first systems.">
-  <meta name="theme-color" content="#f6f8fb">
+  <meta name="theme-color" content="#f6f8fb" id="theme-color-meta">
   <meta property="og:title" content="Oleksandr Molodchyk">
   <meta property="og:description" content="I love building things. Practical software, browser tools, and local-first systems.">
   <meta property="og:type" content="website">
@@ -13,7 +13,17 @@
   <title>Oleksandr Molodchyk</title>
   <link rel="canonical" href="https://molodchyk.com/">
   <link rel="preload" href="assets/hero-workspace.webp?v=20260610-2" as="image" type="image/webp">
-  <link rel="stylesheet" href="styles.css?v=20260610-4">
+  <script>
+    (() => {
+      try {
+        const mode = localStorage.getItem('siteThemeMode');
+        document.documentElement.dataset.themeMode = ['system', 'bright', 'dark'].includes(mode) ? mode : 'system';
+      } catch {
+        document.documentElement.dataset.themeMode = 'system';
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css?v=20260610-5">
 </head>
 <body>
   <header class="site-header">
@@ -27,10 +37,17 @@
       <a href="#about" data-i18n="navAbout">About</a>
       <a href="#contact" data-i18n="navContact">Contact</a>
     </nav>
-    <div class="language-switcher" aria-label="Language">
-      <button type="button" data-language="en" aria-pressed="true">EN</button>
-      <button type="button" data-language="de" aria-pressed="false">DE</button>
-      <button type="button" data-language="uk" aria-pressed="false">UK</button>
+    <div class="header-controls">
+      <div class="theme-switcher" aria-label="UI mode">
+        <button type="button" data-theme-choice="system" data-i18n="themeSystem" aria-pressed="true">System</button>
+        <button type="button" data-theme-choice="bright" data-i18n="themeBright" aria-pressed="false">Bright</button>
+        <button type="button" data-theme-choice="dark" data-i18n="themeDark" aria-pressed="false">Dark</button>
+      </div>
+      <div class="language-switcher" aria-label="Language">
+        <button type="button" data-language="en" aria-pressed="true">EN</button>
+        <button type="button" data-language="de" aria-pressed="false">DE</button>
+        <button type="button" data-language="uk" aria-pressed="false">UK</button>
+      </div>
     </div>
   </header>
 
@@ -334,6 +351,6 @@
     <a href="https://github.com/molodchyk/molodchyk.com" data-i18n="footerSource">Source</a>
   </footer>
 
-  <script src="site.js?v=20260610-4" defer></script>
+  <script src="site.js?v=20260610-5" defer></script>
 </body>
 </html>

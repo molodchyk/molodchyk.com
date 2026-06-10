@@ -4,6 +4,9 @@ const translations = {
     navNow: 'Now',
     navAbout: 'About',
     navContact: 'Contact',
+    themeSystem: 'System',
+    themeBright: 'Bright',
+    themeDark: 'Dark',
     heroEyebrow: 'Software builder',
     heroTitle: 'I love building things.',
     heroIntro: 'I build practical software, browser tools, and local-first systems for making digital environments easier to control.',
@@ -74,6 +77,9 @@ const translations = {
     navNow: 'Jetzt',
     navAbout: 'Über mich',
     navContact: 'Kontakt',
+    themeSystem: 'System',
+    themeBright: 'Hell',
+    themeDark: 'Dunkel',
     heroEyebrow: 'Softwareentwickler',
     heroTitle: 'Ich liebe es, Dinge zu bauen.',
     heroIntro: 'Ich baue praktische Software, Browser-Werkzeuge und lokale Systeme, die digitale Umgebungen kontrollierbarer machen.',
@@ -144,6 +150,9 @@ const translations = {
     navNow: 'Зараз',
     navAbout: 'Про мене',
     navContact: 'Контакт',
+    themeSystem: 'Система',
+    themeBright: 'Світла',
+    themeDark: 'Темна',
     heroEyebrow: 'Розробник ПЗ',
     heroTitle: 'Я люблю будувати речі.',
     heroIntro: 'Я створюю практичне програмне забезпечення, браузерні інструменти та локальні системи, які допомагають краще контролювати цифрове середовище.',
@@ -256,8 +265,82 @@ const fallbackRepos = [
   }
 ];
 
+const themeModes = ['system', 'bright', 'dark'];
+const themeStorageKey = 'siteThemeMode';
+
+function readStorage(key) {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function writeStorage(key, value) {
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    // Storage can be unavailable in strict privacy contexts. The current page state still applies.
+  }
+}
+
+function getSystemTheme() {
+  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'bright';
+}
+
+function getSavedThemeMode() {
+  const saved = readStorage(themeStorageKey);
+  return themeModes.includes(saved) ? saved : 'system';
+}
+
+function updateThemeColor(resolvedTheme) {
+  const meta = document.getElementById('theme-color-meta');
+  if (meta) {
+    meta.setAttribute('content', resolvedTheme === 'dark' ? '#101419' : '#f6f8fb');
+  }
+}
+
+function applyThemeMode(mode) {
+  const selectedMode = themeModes.includes(mode) ? mode : 'system';
+  const resolvedTheme = selectedMode === 'system' ? getSystemTheme() : selectedMode;
+
+  document.documentElement.dataset.themeMode = selectedMode;
+  document.documentElement.dataset.resolvedTheme = resolvedTheme;
+  document.querySelectorAll('[data-theme-choice]').forEach(button => {
+    button.setAttribute('aria-pressed', String(button.dataset.themeChoice === selectedMode));
+  });
+
+  writeStorage(themeStorageKey, selectedMode);
+  updateThemeColor(resolvedTheme);
+}
+
+function initializeThemeSwitcher() {
+  document.querySelectorAll('[data-theme-choice]').forEach(button => {
+    button.addEventListener('click', () => {
+      applyThemeMode(button.dataset.themeChoice);
+    });
+  });
+
+  const systemTheme = window.matchMedia?.('(prefers-color-scheme: dark)');
+  if (!systemTheme) {
+    return;
+  }
+
+  const handleSystemThemeChange = () => {
+    if (getSavedThemeMode() === 'system') {
+      applyThemeMode('system');
+    }
+  };
+
+  if (typeof systemTheme.addEventListener === 'function') {
+    systemTheme.addEventListener('change', handleSystemThemeChange);
+  } else if (typeof systemTheme.addListener === 'function') {
+    systemTheme.addListener(handleSystemThemeChange);
+  }
+}
+
 function getSavedLanguage() {
-  const saved = localStorage.getItem('siteLanguage');
+  const saved = readStorage('siteLanguage');
   if (saved && translations[saved]) {
     return saved;
   }
@@ -280,7 +363,7 @@ function applyLanguage(language) {
     button.setAttribute('aria-pressed', String(button.dataset.language === language));
   });
 
-  localStorage.setItem('siteLanguage', language);
+  writeStorage('siteLanguage', language);
 }
 
 function formatRepoDate(value, language) {
@@ -369,6 +452,10 @@ function initializeYear() {
     year.textContent = currentYear > startYear ? `${startYear} - ${currentYear}` : String(startYear);
   }
 }
+
+const initialThemeMode = getSavedThemeMode();
+applyThemeMode(initialThemeMode);
+initializeThemeSwitcher();
 
 const initialLanguage = getSavedLanguage();
 applyLanguage(initialLanguage);
