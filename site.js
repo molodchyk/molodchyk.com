@@ -274,7 +274,9 @@ function initializeLanguageSwitcher() {
 function initializeYear() {
   const year = document.getElementById('year');
   if (year) {
-    year.textContent = String(new Date().getFullYear());
+    const startYear = 2023;
+    const currentYear = new Date().getFullYear();
+    year.textContent = currentYear > startYear ? `${startYear} - ${currentYear}` : String(startYear);
   }
 }
 
