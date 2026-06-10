@@ -4,31 +4,192 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Oleksandr Molodchyk builds practical software, browser tools, and local-first systems.">
+  <meta name="theme-color" content="#f6f8fb">
+  <meta property="og:title" content="Oleksandr Molodchyk">
+  <meta property="og:description" content="I love building things. Practical software, browser tools, and local-first systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://molodchyk.com/">
+  <meta property="og:image" content="https://molodchyk.com/assets/hero-workspace.png">
   <title>Oleksandr Molodchyk</title>
+  <link rel="canonical" href="https://molodchyk.com/">
+  <link rel="preload" href="assets/hero-workspace.webp" as="image" type="image/webp">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="site-shell">
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Oleksandr Molodchyk home">
+      <span>OM</span>
+      <strong>Oleksandr Molodchyk</strong>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#projects" data-i18n="navProjects">Projects</a>
+      <a href="#now" data-i18n="navNow">Now</a>
+      <a href="#about" data-i18n="navAbout">About</a>
+      <a href="#contact" data-i18n="navContact">Contact</a>
+    </nav>
+    <div class="language-switcher" aria-label="Language">
+      <button type="button" data-language="en" aria-pressed="true">EN</button>
+      <button type="button" data-language="de" aria-pressed="false">DE</button>
+      <button type="button" data-language="uk" aria-pressed="false">UK</button>
+    </div>
+  </header>
+
+  <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow">Oleksandr Molodchyk</p>
-        <h1 id="hero-title">I love building things.</h1>
-        <p class="intro">
-          Practical software, browser tools, and local-first systems for making digital environments easier to control.
+        <p class="eyebrow" data-i18n="heroEyebrow">Software builder</p>
+        <h1 id="hero-title" data-i18n="heroTitle">I love building things.</h1>
+        <p class="intro" data-i18n="heroIntro">
+          I build practical software, browser tools, and local-first systems for making digital environments easier to control.
         </p>
-        <nav class="links" aria-label="Primary links">
-          <a href="https://github.com/molodchyk">GitHub</a>
-          <a href="https://github.com/molodchyk/Defense_against_Distractions">Defense Against Distractions</a>
-          <a href="mailto:molodchykr@gmail.com">Contact</a>
-        </nav>
+        <div class="hero-actions" aria-label="Primary links">
+          <a class="primary-link" href="https://github.com/molodchyk" data-i18n="heroGithub">GitHub</a>
+          <a href="#projects" data-i18n="heroProjects">View projects</a>
+          <a href="mailto:molodchykr@gmail.com" data-i18n="heroContact">Contact</a>
+        </div>
       </div>
 
-      <div class="work-signal" aria-label="Current focus">
-        <span class="signal-label">Currently building</span>
+      <figure class="hero-media">
+        <picture>
+          <source srcset="assets/hero-workspace.webp" type="image/webp">
+          <img src="assets/hero-workspace.png" alt="A focused software workspace with a laptop, notebook, keyboard, and coffee on a desk.">
+        </picture>
+        <figcaption data-i18n="heroImageCaption">Workspace image for now. Replace with a real desk photo later.</figcaption>
+      </figure>
+    </section>
+
+    <section class="signal-band" aria-label="Current work summary">
+      <div>
+        <span data-i18n="signalLabel">Currently building</span>
         <strong>Defense Against Distractions</strong>
-        <p>Browser-level protection against distraction, drift, and hostile attention design.</p>
+      </div>
+      <p data-i18n="signalText">
+        Browser-level protection against distraction, intent drift, and hostile attention design.
+      </p>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="section-heading">
+        <p class="eyebrow" data-i18n="projectsEyebrow">Projects</p>
+        <h2 id="projects-title" data-i18n="projectsTitle">Things I am building</h2>
+        <p data-i18n="projectsIntro">
+          A compact view of active projects and the direction behind them.
+        </p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card featured-project">
+          <div class="project-card-header">
+            <span data-i18n="projectStatusActive">Active</span>
+            <a href="https://github.com/molodchyk/Defense_against_Distractions" aria-label="Defense Against Distractions on GitHub">GitHub</a>
+          </div>
+          <h3>Defense Against Distractions</h3>
+          <p data-i18n="dadDescription">
+            A browser extension for plans, schedules, Pomodoro, UI cleanup, usage diagnostics, and intent-coherence protection.
+          </p>
+          <ul>
+            <li data-i18n="dadPointOne">Local-first protection model</li>
+            <li data-i18n="dadPointTwo">Drift and distraction diagnostics</li>
+            <li data-i18n="dadPointThree">Chrome Web Store focused</li>
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card-header">
+            <span data-i18n="projectStatusPlanned">Planned</span>
+            <a href="https://github.com/molodchyk/Defense_against_Distractions_Windows" aria-label="DaD Windows on GitHub">GitHub</a>
+          </div>
+          <h3>DaD Windows</h3>
+          <p data-i18n="dadWindowsDescription">
+            A planned native Windows companion for system idle, lock, app, and Pomodoro signals that a browser extension cannot own alone.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card-header">
+            <span data-i18n="projectStatusThis">This site</span>
+            <a href="https://github.com/molodchyk/molodchyk.com" aria-label="molodchyk.com on GitHub">GitHub</a>
+          </div>
+          <h3>molodchyk.com</h3>
+          <p data-i18n="siteDescription">
+            A public home base for current work, project notes, and GitHub-visible activity.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section split-section" id="now" aria-labelledby="now-title">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow" data-i18n="nowEyebrow">Now</p>
+        <h2 id="now-title" data-i18n="nowTitle">Current focus</h2>
+      </div>
+
+      <div class="now-list">
+        <article>
+          <span data-i18n="nowOneLabel">Product</span>
+          <h3 data-i18n="nowOneTitle">Defense Against Distractions release readiness</h3>
+          <p data-i18n="nowOneText">
+            Tightening the browser extension around plans, diagnostics, Pomodoro, and intent-coherence behavior.
+          </p>
+        </article>
+        <article>
+          <span data-i18n="nowTwoLabel">Research</span>
+          <h3 data-i18n="nowTwoTitle">Attention control systems</h3>
+          <p data-i18n="nowTwoText">
+            Exploring practical defenses against drift, recommender capture, and destructive browsing trajectories.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section github-section" aria-labelledby="github-title">
+      <div class="section-heading">
+        <p class="eyebrow" data-i18n="githubEyebrow">GitHub</p>
+        <h2 id="github-title" data-i18n="githubTitle">Public activity</h2>
+        <p data-i18n="githubIntro">
+          Recent public repositories from GitHub. This uses the public GitHub API in the browser with no token and no backend.
+        </p>
+      </div>
+
+      <div class="repo-grid" id="repoGrid" aria-live="polite">
+        <article class="repo-card">
+          <span data-i18n="githubLoading">Loading public repositories...</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about" aria-labelledby="about-title">
+      <div class="section-heading">
+        <p class="eyebrow" data-i18n="aboutEyebrow">About</p>
+        <h2 id="about-title" data-i18n="aboutTitle">Practical software, direct feedback loops</h2>
+      </div>
+      <div class="about-copy">
+        <p data-i18n="aboutTextOne">
+          I like software that earns its place by reducing friction, preserving attention, or making a system easier to understand.
+        </p>
+        <p data-i18n="aboutTextTwo">
+          My current focus is Defense Against Distractions: a local-first protection system that treats distraction as more than a list of bad websites.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div>
+        <p class="eyebrow" data-i18n="contactEyebrow">Contact</p>
+        <h2 id="contact-title" data-i18n="contactTitle">Send a direct signal</h2>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:molodchykr@gmail.com">molodchykr@gmail.com</a>
+        <a href="https://github.com/molodchyk">github.com/molodchyk</a>
       </div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <span>&copy; <span id="year">2026</span> Oleksandr Molodchyk</span>
+    <a href="https://github.com/molodchyk/molodchyk.com" data-i18n="footerSource">Source</a>
+  </footer>
+
+  <script src="site.js" defer></script>
 </body>
 </html>

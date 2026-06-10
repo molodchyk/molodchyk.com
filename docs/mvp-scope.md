@@ -74,6 +74,16 @@ The exact language set can be decided when implementation starts.
 - marketplace for DaD configurations
 - payment or premium features
 
+## Implemented First Slice
+
+- Static homepage
+- Project section
+- Current-focus section
+- Public GitHub repository cards using GitHub's public browser API with no token
+- English, German, and Ukrainian language switcher
+- Temporary generated workspace image instead of a fake photo of Oleksandr
+- GitHub Pages custom-domain setup through `CNAME`
+
 ## Open Stack Choice
 
 Candidate stacks:
@@ -82,4 +92,4 @@ Candidate stacks:
 - Next.js
 - plain static site
 
-The first implementation should be easy to deploy, easy to localize, and not overcomplicated.
+The first implementation uses the plain static site path. A framework can be introduced later only if content or localization complexity justifies it.
