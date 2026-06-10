@@ -13,7 +13,7 @@
   <title>Oleksandr Molodchyk</title>
   <link rel="canonical" href="https://molodchyk.com/">
   <link rel="preload" href="assets/hero-workspace.webp?v=20260610-2" as="image" type="image/webp">
-  <link rel="stylesheet" href="styles.css?v=20260610-2">
+  <link rel="stylesheet" href="styles.css?v=20260610-4">
 </head>
 <body>
   <header class="site-header">
@@ -73,31 +73,173 @@
         <p class="eyebrow" data-i18n="projectsEyebrow">Projects</p>
         <h2 id="projects-title" data-i18n="projectsTitle">Things I am building</h2>
         <p data-i18n="projectsIntro">
-          A compact view of active projects and the direction behind them.
+          Browser extensions and supporting systems built from 2023 to 2026.
+        </p>
+        <p class="section-note" data-i18n="projectsSnapshot">
+          Store status snapshot: June 10, 2026.
         </p>
       </div>
 
-      <div class="project-grid">
+      <div class="project-grid portfolio-grid">
         <article class="project-card featured-project">
           <div class="project-card-header">
-            <span data-i18n="projectStatusActive">Active</span>
-            <a href="https://github.com/molodchyk/Defense_against_Distractions" aria-label="Defense Against Distractions on GitHub">GitHub</a>
+            <span data-i18n="projectStatusPublished">Published</span>
+            <div class="project-links">
+              <a href="https://chromewebstore.google.com/detail/defense-against-distracti/nhkelkpefomnpeigoifhhlmajenkohfo" aria-label="Defense Against Distractions on Chrome Web Store">Chrome</a>
+              <a href="https://github.com/molodchyk/Defense_against_Distractions" aria-label="Defense Against Distractions on GitHub">GitHub</a>
+            </div>
           </div>
           <h3>Defense Against Distractions</h3>
           <p data-i18n="dadDescription">
-            A browser extension for plans, schedules, Pomodoro, UI cleanup, usage diagnostics, and intent-coherence protection.
+            A browser-level protection system for plans, schedules, Pomodoro, UI cleanup, usage diagnostics, and intent-coherence protection.
           </p>
+          <div class="project-meta" aria-label="Project metadata">
+            <span>Chrome v1.5.0</span>
+            <span data-i18n="dadUsers">38 users</span>
+            <span data-i18n="dadCreated">Created Dec 28, 2023</span>
+          </div>
           <ul>
             <li data-i18n="dadPointOne">Local-first protection model</li>
             <li data-i18n="dadPointTwo">Drift and distraction diagnostics</li>
-            <li data-i18n="dadPointThree">Chrome Web Store focused</li>
+            <li data-i18n="dadPointThree">Plans, schedules, Pomodoro, and UI rules</li>
           </ul>
         </article>
 
         <article class="project-card">
           <div class="project-card-header">
+            <span data-i18n="projectStatusPublished">Published</span>
+            <div class="project-links">
+              <a href="https://chromewebstore.google.com/detail/youtube-mix-blocker/hcjmmaealhemocjdjfajldoneaidkaga" aria-label="YouTube Mix Blocker on Chrome Web Store">Chrome</a>
+              <a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-mix-blocker/" aria-label="YouTube Mix Blocker on Firefox Add-ons">Firefox</a>
+              <a href="https://github.com/molodchyk/YouTubeMixBlocker" aria-label="YouTube Mix Blocker on GitHub">GitHub</a>
+            </div>
+          </div>
+          <h3>YouTube Mix Blocker</h3>
+          <p data-i18n="youtubeMixDescription">
+            Blocks YouTube Mix recommendations and cleans Mix watch URLs so videos open as ordinary video links.
+          </p>
+          <div class="project-meta" aria-label="Project metadata">
+            <span>Chrome v1.5.2</span>
+            <span>Firefox v1.5.1</span>
+            <span data-i18n="youtubeMixUsers">1,121 Chrome users</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card-header">
+            <span data-i18n="projectStatusPublished">Published</span>
+            <div class="project-links">
+              <a href="https://chromewebstore.google.com/detail/motionblock-gif-blocker-a/hakggpkloechnmgdkojohpahbglnhcng" aria-label="MotionBlock on Chrome Web Store">Chrome</a>
+              <a href="https://github.com/molodchyk/MotionBlock" aria-label="MotionBlock on GitHub">GitHub</a>
+            </div>
+          </div>
+          <h3>MotionBlock</h3>
+          <p data-i18n="motionBlockDescription">
+            Stops GIFs, GIFV, autoplay video, hover previews, and distracting motion with per-site controls.
+          </p>
+          <div class="project-meta" aria-label="Project metadata">
+            <span>Chrome v1.0.0</span>
+            <span data-i18n="motionBlockStatus">Public Chrome listing</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card-header">
+            <span data-i18n="projectStatusPublished">Published</span>
+            <div class="project-links">
+              <a href="https://chromewebstore.google.com/detail/discord-gif-blocker/kpkhmnaopmefcjmnglakfkmnbpgkhobb" aria-label="Discord GIF Blocker on Chrome Web Store">Chrome</a>
+              <a href="https://github.com/molodchyk/DiscordGIFBlocker" aria-label="Discord GIF Blocker on GitHub">GitHub</a>
+            </div>
+          </div>
+          <h3>Discord GIF Blocker</h3>
+          <p data-i18n="discordGifDescription">
+            Blocks animated GIFs on Discord to reduce visual noise and make the web app calmer.
+          </p>
+          <div class="project-meta" aria-label="Project metadata">
+            <span>Chrome v1.1.0</span>
+            <span data-i18n="discordGifUsers">64 users</span>
+            <span data-i18n="discordGifRating">5.0 rating</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card-header">
+            <span data-i18n="projectStatusPublished">Published</span>
+            <div class="project-links">
+              <a href="https://chromewebstore.google.com/detail/discord-search-blocker/nkmoecimnipoeijdcbohpebjpofmhegb" aria-label="Discord Search Blocker on Chrome Web Store">Chrome</a>
+              <a href="https://github.com/molodchyk/DiscordSearchBlocker" aria-label="Discord Search Blocker on GitHub">GitHub</a>
+            </div>
+          </div>
+          <h3>Discord Search Blocker</h3>
+          <p data-i18n="discordSearchDescription">
+            Hides Discord's in-channel search field so intentionally avoided channels are harder to reopen through search.
+          </p>
+          <div class="project-meta" aria-label="Project metadata">
+            <span>Chrome v1.2.0</span>
+            <span data-i18n="discordSearchUsers">46 users</span>
+            <span data-i18n="discordSearchRating">5.0 rating</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card-header">
+            <span data-i18n="projectStatusApproved">Approved</span>
+            <div class="project-links">
+              <a href="https://addons.mozilla.org/en-US/firefox/addon/storepilot/" aria-label="StorePilot on Firefox Add-ons">Firefox</a>
+              <a href="https://github.com/molodchyk/StorePilot" aria-label="StorePilot on GitHub">GitHub</a>
+            </div>
+          </div>
+          <h3>StorePilot</h3>
+          <p data-i18n="storePilotDescription">
+            Automates Chrome Web Store listing work: field autofill, screenshots, descriptions, and privacy form text.
+          </p>
+          <div class="project-meta" aria-label="Project metadata">
+            <span>Firefox v1.1.3</span>
+            <span data-i18n="storePilotDownloads">3 weekly downloads</span>
+            <span data-i18n="storePilotUsers">1 active user</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card-header">
+            <span data-i18n="projectStatusPending">Pending review</span>
+            <div class="project-links">
+              <a href="https://github.com/molodchyk/lockscreen-audio-guard" aria-label="Lockscreen Audio Guard on GitHub">GitHub</a>
+            </div>
+          </div>
+          <h3>Lockscreen Audio Guard</h3>
+          <p data-i18n="lockscreenDescription">
+            Stops browser audio when the computer locks and prevents lock-screen media controls from resuming sound.
+          </p>
+          <div class="project-meta" aria-label="Project metadata">
+            <span>Chrome v1.0.0</span>
+            <span data-i18n="lockscreenCreated">Created Jun 9, 2026</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card-header">
+            <span data-i18n="projectStatusPrototype">Prototype</span>
+            <div class="project-links">
+              <a href="https://github.com/molodchyk/ConsentBlur" aria-label="ConsentBlur on GitHub">GitHub</a>
+            </div>
+          </div>
+          <h3>ConsentBlur</h3>
+          <p data-i18n="consentBlurDescription">
+            A local-first media safety prototype that progressively blurs risky or unwanted image previews.
+          </p>
+          <div class="project-meta" aria-label="Project metadata">
+            <span>Extension v0.1.0</span>
+            <span data-i18n="projectStatusPrototype">Prototype</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card-header">
             <span data-i18n="projectStatusPlanned">Planned</span>
-            <a href="https://github.com/molodchyk/Defense_against_Distractions_Windows" aria-label="DaD Windows on GitHub">GitHub</a>
+            <div class="project-links">
+              <a href="https://github.com/molodchyk/Defense_against_Distractions_Windows" aria-label="DaD Windows on GitHub">GitHub</a>
+            </div>
           </div>
           <h3>DaD Windows</h3>
           <p data-i18n="dadWindowsDescription">
@@ -108,7 +250,9 @@
         <article class="project-card">
           <div class="project-card-header">
             <span data-i18n="projectStatusThis">This site</span>
-            <a href="https://github.com/molodchyk/molodchyk.com" aria-label="molodchyk.com on GitHub">GitHub</a>
+            <div class="project-links">
+              <a href="https://github.com/molodchyk/molodchyk.com" aria-label="molodchyk.com on GitHub">GitHub</a>
+            </div>
           </div>
           <h3>molodchyk.com</h3>
           <p data-i18n="siteDescription">
@@ -190,6 +334,6 @@
     <a href="https://github.com/molodchyk/molodchyk.com" data-i18n="footerSource">Source</a>
   </footer>
 
-  <script src="site.js?v=20260610-3" defer></script>
+  <script src="site.js?v=20260610-4" defer></script>
 </body>
 </html>
