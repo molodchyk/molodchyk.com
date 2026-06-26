@@ -165,15 +165,15 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/" aria-label="Oleksandr Molodchyk home">
+    <a class="brand" href="/" aria-label="Oleksandr Molodchyk home" data-i18n-aria-label="brandHomeLabel">
       <span>OM</span>
       <strong>Oleksandr Molodchyk</strong>
     </a>
-    <nav class="main-nav" aria-label="Main navigation">
-      <a href="/#projects">Projects</a>
-      <a href="/#now">Now</a>
-      <a href="/#about">About</a>
-      <a href="/#contact">Contact</a>
+    <nav class="main-nav" aria-label="Main navigation" data-i18n-aria-label="navLabel">
+      <a href="/#projects" data-i18n="navProjects">Projects</a>
+      <a href="/#now" data-i18n="navNow">Now</a>
+      <a href="/#about" data-i18n="navAbout">About</a>
+      <a href="/#contact" data-i18n="navContact">Contact</a>
     </nav>
   </header>
 
@@ -181,11 +181,11 @@
     <section class="uninstall-layout" aria-labelledby="feedback-title">
       <div class="uninstall-copy">
         <p class="eyebrow">YouTube Mix Blocker</p>
-        <h1 id="feedback-title">Help improve the extension</h1>
-        <p class="intro">
+        <h1 id="feedback-title" data-i18n="headline">Help improve the extension</h1>
+        <p class="intro" data-i18n="intro">
           If YouTube Mix Blocker missed the mark, one short note is enough. This form is optional and does not require contact information.
         </p>
-        <p class="privacy-note">
+        <p class="privacy-note" data-i18n="privacyNote">
           The extension opens this page after uninstall with only generic source, version, and browser-language parameters. Do not include personal data unless you intentionally want to share it.
         </p>
       </div>
@@ -197,56 +197,1020 @@
         <input type="hidden" name="language" id="feedback-language" value="">
 
         <div class="field">
-          <label for="reason">Why did you uninstall?</label>
+          <label for="reason" data-i18n="reasonLabel">Why did you uninstall?</label>
           <select id="reason" name="reason" required>
-            <option value="">Choose one</option>
-            <option value="not_enough_blocking">It did not block enough YouTube Mixes</option>
-            <option value="blocked_incorrectly">It blocked or changed something incorrectly</option>
-            <option value="layout_or_language">It did not work on my YouTube layout or language</option>
-            <option value="configuration">It was confusing to configure</option>
-            <option value="bug_or_slowdown">It caused a bug, slowdown, or compatibility issue</option>
-            <option value="no_longer_needed">I no longer need it</option>
-            <option value="privacy_or_permissions">Privacy or permission concern</option>
-            <option value="other">Other</option>
+            <option value="" data-i18n="chooseOne">Choose one</option>
+            <option value="not_enough_blocking" data-i18n="reasonNotEnough">It did not block enough YouTube Mixes</option>
+            <option value="blocked_incorrectly" data-i18n="reasonBlockedIncorrectly">It blocked or changed something incorrectly</option>
+            <option value="layout_or_language" data-i18n="reasonLayoutLanguage">It did not work on my YouTube layout or language</option>
+            <option value="configuration" data-i18n="reasonConfiguration">It was confusing to configure</option>
+            <option value="bug_or_slowdown" data-i18n="reasonBugSlowdown">It caused a bug, slowdown, or compatibility issue</option>
+            <option value="no_longer_needed" data-i18n="reasonNoLongerNeeded">I no longer need it</option>
+            <option value="privacy_or_permissions" data-i18n="reasonPrivacyPermissions">Privacy or permission concern</option>
+            <option value="other" data-i18n="reasonOther">Other</option>
           </select>
         </div>
 
         <div class="field">
-          <label for="details">What happened or what did you expect instead?</label>
-          <span>Optional. A sentence or two is enough.</span>
+          <label for="details" data-i18n="detailsLabel">What happened or what did you expect instead?</label>
+          <span data-i18n="detailsHelp">Optional. A sentence or two is enough.</span>
           <textarea id="details" name="details" autocomplete="off"></textarea>
         </div>
 
         <div class="field">
-          <label for="feature">What feature would make you try it again?</label>
-          <span>Optional.</span>
+          <label for="feature" data-i18n="featureLabel">What feature would make you try it again?</label>
+          <span data-i18n="featureHelp">Optional.</span>
           <textarea id="feature" name="requested_feature" autocomplete="off"></textarea>
         </div>
 
         <div class="field">
-          <label for="contact">Reply address</label>
-          <span>Optional. Only include this if you want a reply.</span>
+          <label for="contact" data-i18n="contactLabel">Reply address</label>
+          <span data-i18n="contactHelp">Optional. Only include this if you want a reply.</span>
           <input id="contact" name="reply_address" type="text" autocomplete="email">
         </div>
 
-        <button type="submit" id="submit-button">Send feedback</button>
-        <p class="form-status" id="form-status">Feedback is processed by Formspree.</p>
+        <button type="submit" id="submit-button" data-i18n="submit">Send feedback</button>
+        <p class="form-status" id="form-status" data-i18n="status">Feedback is processed by Formspree.</p>
       </form>
     </section>
   </main>
 
   <footer class="site-footer">
     <span>&copy; <span id="year">2023 - 2026</span> Oleksandr Molodchyk</span>
-    <a href="https://github.com/molodchyk/molodchyk.com">Source</a>
+    <a href="https://github.com/molodchyk/molodchyk.com" data-i18n="footerSource">Source</a>
   </footer>
 
   <script>
     (() => {
+      const BASE_COPY = {
+        pageTitle: "YouTube Mix Blocker Feedback",
+        metaDescription: "Optional uninstall feedback for YouTube Mix Blocker.",
+        brandHomeLabel: "Oleksandr Molodchyk home",
+        navLabel: "Main navigation",
+        navProjects: "Projects",
+        navNow: "Now",
+        navAbout: "About",
+        navContact: "Contact",
+        headline: "Help improve the extension",
+        intro: "If YouTube Mix Blocker missed the mark, one short note is enough. This form is optional and does not require contact information.",
+        privacyNote: "The extension opens this page after uninstall with only generic source, version, and browser-language parameters. Do not include personal data unless you intentionally want to share it.",
+        reasonLabel: "Why did you uninstall?",
+        chooseOne: "Choose one",
+        reasonNotEnough: "It did not block enough YouTube Mixes",
+        reasonBlockedIncorrectly: "It blocked or changed something incorrectly",
+        reasonLayoutLanguage: "It did not work on my YouTube layout or language",
+        reasonConfiguration: "It was confusing to configure",
+        reasonBugSlowdown: "It caused a bug, slowdown, or compatibility issue",
+        reasonNoLongerNeeded: "I no longer need it",
+        reasonPrivacyPermissions: "Privacy or permission concern",
+        reasonOther: "Other",
+        detailsLabel: "What happened or what did you expect instead?",
+        detailsHelp: "Optional. A sentence or two is enough.",
+        featureLabel: "What feature would make you try it again?",
+        featureHelp: "Optional.",
+        contactLabel: "Reply address",
+        contactHelp: "Optional. Only include this if you want a reply.",
+        submit: "Send feedback",
+        status: "Feedback is processed by Formspree.",
+        footerSource: "Source"
+      };
+
+      const LOCALE_COPY = {
+        ar: {
+          pageTitle: "ملاحظات YouTube Mix Blocker",
+          metaDescription: "ملاحظات اختيارية بعد إلغاء تثبيت YouTube Mix Blocker.",
+          brandHomeLabel: "الصفحة الرئيسية لأوليكساندر مولودتشيك",
+          navLabel: "التنقل الرئيسي",
+          navProjects: "المشاريع",
+          navNow: "الآن",
+          navAbout: "حول",
+          navContact: "تواصل",
+          headline: "ساعد في تحسين الإضافة",
+          intro: "إذا لم يلب YouTube Mix Blocker توقعاتك، تكفي ملاحظة قصيرة. هذا النموذج اختياري ولا يتطلب معلومات تواصل.",
+          privacyNote: "تفتح الإضافة هذه الصفحة بعد إلغاء التثبيت مع معلمات عامة فقط: المصدر والإصدار ولغة المتصفح. لا تدرج بيانات شخصية إلا إذا كنت تريد مشاركتها عمدا.",
+          reasonLabel: "لماذا ألغيت التثبيت؟",
+          chooseOne: "اختر سببا",
+          reasonNotEnough: "لم يحظر ما يكفي من YouTube Mixes",
+          reasonBlockedIncorrectly: "حظر أو غيّر شيئا بشكل غير صحيح",
+          reasonLayoutLanguage: "لم يعمل مع تخطيط YouTube أو لغتي",
+          reasonConfiguration: "كان ضبطه مربكا",
+          reasonBugSlowdown: "سبب خللا أو بطئا أو مشكلة توافق",
+          reasonNoLongerNeeded: "لم أعد بحاجة إليه",
+          reasonPrivacyPermissions: "مشكلة خصوصية أو أذونات",
+          reasonOther: "غير ذلك",
+          detailsLabel: "ماذا حدث، أو ماذا كنت تتوقع بدلا من ذلك؟",
+          detailsHelp: "اختياري. تكفي جملة أو جملتان.",
+          featureLabel: "ما الميزة التي قد تجعلك تجربه مرة أخرى؟",
+          featureHelp: "اختياري.",
+          contactLabel: "عنوان للرد",
+          contactHelp: "اختياري. أضفه فقط إذا كنت تريد ردا.",
+          submit: "إرسال الملاحظات",
+          status: "تتم معالجة الملاحظات عبر Formspree.",
+          footerSource: "المصدر"
+        },
+        ca: {
+          pageTitle: "Comentaris de YouTube Mix Blocker",
+          metaDescription: "Comentaris opcionals després de desinstal·lar YouTube Mix Blocker.",
+          brandHomeLabel: "Inici d'Oleksandr Molodchyk",
+          navLabel: "Navegació principal",
+          navProjects: "Projectes",
+          navNow: "Ara",
+          navAbout: "Sobre mi",
+          navContact: "Contacte",
+          headline: "Ajuda a millorar l'extensió",
+          intro: "Si YouTube Mix Blocker no ha complert les expectatives, una nota breu és suficient. Aquest formulari és opcional i no requereix dades de contacte.",
+          privacyNote: "L'extensió obre aquesta pàgina després de desinstal·lar-la només amb paràmetres genèrics de font, versió i idioma del navegador. No incloguis dades personals tret que les vulguis compartir.",
+          reasonLabel: "Per què l'has desinstal·lada?",
+          chooseOne: "Tria una opció",
+          reasonNotEnough: "No bloquejava prou YouTube Mixes",
+          reasonBlockedIncorrectly: "Bloquejava o canviava alguna cosa incorrectament",
+          reasonLayoutLanguage: "No funcionava amb el meu disseny o idioma de YouTube",
+          reasonConfiguration: "Era confusa de configurar",
+          reasonBugSlowdown: "Causava un error, lentitud o problemes de compatibilitat",
+          reasonNoLongerNeeded: "Ja no la necessito",
+          reasonPrivacyPermissions: "Preocupació de privadesa o permisos",
+          reasonOther: "Altres",
+          detailsLabel: "Què ha passat o què esperaves en lloc d'això?",
+          detailsHelp: "Opcional. Una o dues frases són suficients.",
+          featureLabel: "Quina funció et faria provar-la de nou?",
+          featureHelp: "Opcional.",
+          contactLabel: "Adreça de resposta",
+          contactHelp: "Opcional. Inclou-la només si vols una resposta.",
+          submit: "Envia els comentaris",
+          status: "Els comentaris es processen amb Formspree.",
+          footerSource: "Codi font"
+        },
+        cs: {
+          pageTitle: "Zpětná vazba k YouTube Mix Blocker",
+          metaDescription: "Volitelná zpětná vazba po odinstalování YouTube Mix Blocker.",
+          brandHomeLabel: "Domovská stránka Oleksandra Molodchyka",
+          navLabel: "Hlavní navigace",
+          navProjects: "Projekty",
+          navNow: "Teď",
+          navAbout: "O mně",
+          navContact: "Kontakt",
+          headline: "Pomozte rozšíření zlepšit",
+          intro: "Pokud YouTube Mix Blocker nesplnil očekávání, stačí krátká poznámka. Formulář je volitelný a nevyžaduje kontaktní údaje.",
+          privacyNote: "Rozšíření po odinstalování otevře tuto stránku pouze s obecnými parametry zdroje, verze a jazyka prohlížeče. Neuvádějte osobní údaje, pokud je nechcete záměrně sdílet.",
+          reasonLabel: "Proč jste rozšíření odinstalovali?",
+          chooseOne: "Vyberte jednu možnost",
+          reasonNotEnough: "Nefiltrovalo dost YouTube Mixů",
+          reasonBlockedIncorrectly: "Něco blokovalo nebo měnilo nesprávně",
+          reasonLayoutLanguage: "Nefungovalo v mém rozložení nebo jazyce YouTube",
+          reasonConfiguration: "Nastavení bylo matoucí",
+          reasonBugSlowdown: "Způsobovalo chybu, zpomalení nebo problém s kompatibilitou",
+          reasonNoLongerNeeded: "Už ho nepotřebuji",
+          reasonPrivacyPermissions: "Obava o soukromí nebo oprávnění",
+          reasonOther: "Jiné",
+          detailsLabel: "Co se stalo nebo co jste očekávali místo toho?",
+          detailsHelp: "Volitelné. Stačí jedna nebo dvě věty.",
+          featureLabel: "Jaká funkce by vás přiměla rozšíření zkusit znovu?",
+          featureHelp: "Volitelné.",
+          contactLabel: "Adresa pro odpověď",
+          contactHelp: "Volitelné. Uveďte ji jen tehdy, pokud chcete odpověď.",
+          submit: "Odeslat zpětnou vazbu",
+          status: "Zpětnou vazbu zpracovává Formspree.",
+          footerSource: "Zdroj"
+        },
+        de: {
+          pageTitle: "Feedback zu YouTube Mix Blocker",
+          metaDescription: "Optionales Feedback nach der Deinstallation von YouTube Mix Blocker.",
+          brandHomeLabel: "Startseite von Oleksandr Molodchyk",
+          navLabel: "Hauptnavigation",
+          navProjects: "Projekte",
+          navNow: "Jetzt",
+          navAbout: "Über mich",
+          navContact: "Kontakt",
+          headline: "Hilf mit, die Erweiterung zu verbessern",
+          intro: "Wenn YouTube Mix Blocker deine Erwartungen nicht erfüllt hat, reicht eine kurze Notiz. Dieses Formular ist optional und erfordert keine Kontaktdaten.",
+          privacyNote: "Die Erweiterung öffnet diese Seite nach der Deinstallation nur mit allgemeinen Parametern für Quelle, Version und Browsersprache. Gib keine personenbezogenen Daten an, außer du möchtest sie bewusst teilen.",
+          reasonLabel: "Warum hast du deinstalliert?",
+          chooseOne: "Bitte auswählen",
+          reasonNotEnough: "Es wurden nicht genug YouTube Mixes blockiert",
+          reasonBlockedIncorrectly: "Es wurde etwas fälschlicherweise blockiert oder verändert",
+          reasonLayoutLanguage: "Es funktionierte nicht mit meinem YouTube-Layout oder meiner Sprache",
+          reasonConfiguration: "Die Konfiguration war verwirrend",
+          reasonBugSlowdown: "Es gab einen Fehler, eine Verlangsamung oder ein Kompatibilitätsproblem",
+          reasonNoLongerNeeded: "Ich brauche es nicht mehr",
+          reasonPrivacyPermissions: "Datenschutz- oder Berechtigungsbedenken",
+          reasonOther: "Sonstiges",
+          detailsLabel: "Was ist passiert oder was hast du stattdessen erwartet?",
+          detailsHelp: "Optional. Ein oder zwei Sätze reichen.",
+          featureLabel: "Welche Funktion würde dich dazu bringen, es erneut zu versuchen?",
+          featureHelp: "Optional.",
+          contactLabel: "Antwortadresse",
+          contactHelp: "Optional. Nur angeben, wenn du eine Antwort möchtest.",
+          submit: "Feedback senden",
+          status: "Feedback wird über Formspree verarbeitet.",
+          footerSource: "Quellcode"
+        },
+        es: {
+          pageTitle: "Comentarios sobre YouTube Mix Blocker",
+          metaDescription: "Comentarios opcionales tras desinstalar YouTube Mix Blocker.",
+          brandHomeLabel: "Inicio de Oleksandr Molodchyk",
+          navLabel: "Navegación principal",
+          navProjects: "Proyectos",
+          navNow: "Ahora",
+          navAbout: "Acerca de",
+          navContact: "Contacto",
+          headline: "Ayuda a mejorar la extensión",
+          intro: "Si YouTube Mix Blocker no cumplió tus expectativas, una nota breve es suficiente. Este formulario es opcional y no requiere información de contacto.",
+          privacyNote: "La extensión abre esta página después de desinstalarse solo con parámetros genéricos de origen, versión e idioma del navegador. No incluyas datos personales salvo que quieras compartirlos intencionalmente.",
+          reasonLabel: "¿Por qué la desinstalaste?",
+          chooseOne: "Elige una opción",
+          reasonNotEnough: "No bloqueó suficientes YouTube Mixes",
+          reasonBlockedIncorrectly: "Bloqueó o cambió algo incorrectamente",
+          reasonLayoutLanguage: "No funcionó con mi diseño o idioma de YouTube",
+          reasonConfiguration: "Era confusa de configurar",
+          reasonBugSlowdown: "Causó un error, lentitud o problema de compatibilidad",
+          reasonNoLongerNeeded: "Ya no la necesito",
+          reasonPrivacyPermissions: "Preocupación por privacidad o permisos",
+          reasonOther: "Otro",
+          detailsLabel: "¿Qué pasó o qué esperabas en su lugar?",
+          detailsHelp: "Opcional. Una o dos frases son suficientes.",
+          featureLabel: "¿Qué función haría que la probaras de nuevo?",
+          featureHelp: "Opcional.",
+          contactLabel: "Dirección para responder",
+          contactHelp: "Opcional. Inclúyela solo si quieres una respuesta.",
+          submit: "Enviar comentarios",
+          status: "Los comentarios se procesan con Formspree.",
+          footerSource: "Código fuente"
+        },
+        fr: {
+          pageTitle: "Retour sur YouTube Mix Blocker",
+          metaDescription: "Retour facultatif après la désinstallation de YouTube Mix Blocker.",
+          brandHomeLabel: "Accueil d'Oleksandr Molodchyk",
+          navLabel: "Navigation principale",
+          navProjects: "Projets",
+          navNow: "Maintenant",
+          navAbout: "À propos",
+          navContact: "Contact",
+          headline: "Aidez à améliorer l'extension",
+          intro: "Si YouTube Mix Blocker n'a pas répondu à vos attentes, une courte note suffit. Ce formulaire est facultatif et ne demande pas de coordonnées.",
+          privacyNote: "L'extension ouvre cette page après la désinstallation avec uniquement des paramètres génériques de source, de version et de langue du navigateur. N'indiquez pas de données personnelles sauf si vous voulez les partager volontairement.",
+          reasonLabel: "Pourquoi l'avez-vous désinstallée ?",
+          chooseOne: "Choisir une option",
+          reasonNotEnough: "Elle ne bloquait pas assez de YouTube Mixes",
+          reasonBlockedIncorrectly: "Elle bloquait ou modifiait quelque chose à tort",
+          reasonLayoutLanguage: "Elle ne fonctionnait pas avec ma mise en page ou ma langue YouTube",
+          reasonConfiguration: "Elle était confuse à configurer",
+          reasonBugSlowdown: "Elle causait un bug, un ralentissement ou un problème de compatibilité",
+          reasonNoLongerNeeded: "Je n'en ai plus besoin",
+          reasonPrivacyPermissions: "Préoccupation liée à la confidentialité ou aux autorisations",
+          reasonOther: "Autre",
+          detailsLabel: "Que s'est-il passé ou qu'attendiez-vous à la place ?",
+          detailsHelp: "Facultatif. Une ou deux phrases suffisent.",
+          featureLabel: "Quelle fonctionnalité vous ferait réessayer ?",
+          featureHelp: "Facultatif.",
+          contactLabel: "Adresse de réponse",
+          contactHelp: "Facultatif. À inclure uniquement si vous souhaitez une réponse.",
+          submit: "Envoyer le retour",
+          status: "Le retour est traité par Formspree.",
+          footerSource: "Source"
+        },
+        hr: {
+          pageTitle: "Povratne informacije za YouTube Mix Blocker",
+          metaDescription: "Neobavezne povratne informacije nakon deinstalacije YouTube Mix Blockera.",
+          brandHomeLabel: "Početna stranica Oleksandra Molodchyka",
+          navLabel: "Glavna navigacija",
+          navProjects: "Projekti",
+          navNow: "Sada",
+          navAbout: "O meni",
+          navContact: "Kontakt",
+          headline: "Pomozite poboljšati proširenje",
+          intro: "Ako YouTube Mix Blocker nije ispunio očekivanja, dovoljna je kratka napomena. Ovaj je obrazac neobavezan i ne traži kontaktne podatke.",
+          privacyNote: "Proširenje otvara ovu stranicu nakon deinstalacije samo s općim parametrima izvora, verzije i jezika preglednika. Nemojte unositi osobne podatke osim ako ih namjerno želite podijeliti.",
+          reasonLabel: "Zašto ste deinstalirali?",
+          chooseOne: "Odaberite jednu opciju",
+          reasonNotEnough: "Nije blokiralo dovoljno YouTube Mixeva",
+          reasonBlockedIncorrectly: "Nešto je pogrešno blokiralo ili promijenilo",
+          reasonLayoutLanguage: "Nije radilo s mojim YouTube rasporedom ili jezikom",
+          reasonConfiguration: "Konfiguracija je bila zbunjujuća",
+          reasonBugSlowdown: "Uzrokovalo je grešku, usporenje ili problem kompatibilnosti",
+          reasonNoLongerNeeded: "Više mi ne treba",
+          reasonPrivacyPermissions: "Briga oko privatnosti ili dopuštenja",
+          reasonOther: "Ostalo",
+          detailsLabel: "Što se dogodilo ili što ste očekivali umjesto toga?",
+          detailsHelp: "Neobavezno. Dovoljna je jedna ili dvije rečenice.",
+          featureLabel: "Koja bi vas značajka navela da pokušate ponovno?",
+          featureHelp: "Neobavezno.",
+          contactLabel: "Adresa za odgovor",
+          contactHelp: "Neobavezno. Uključite samo ako želite odgovor.",
+          submit: "Pošalji povratne informacije",
+          status: "Povratne informacije obrađuje Formspree.",
+          footerSource: "Izvor"
+        },
+        id: {
+          pageTitle: "Masukan YouTube Mix Blocker",
+          metaDescription: "Masukan opsional setelah menghapus YouTube Mix Blocker.",
+          brandHomeLabel: "Beranda Oleksandr Molodchyk",
+          navLabel: "Navigasi utama",
+          navProjects: "Proyek",
+          navNow: "Sekarang",
+          navAbout: "Tentang",
+          navContact: "Kontak",
+          headline: "Bantu tingkatkan ekstensi",
+          intro: "Jika YouTube Mix Blocker belum sesuai harapan, satu catatan singkat sudah cukup. Formulir ini opsional dan tidak memerlukan informasi kontak.",
+          privacyNote: "Ekstensi membuka halaman ini setelah dihapus hanya dengan parameter umum sumber, versi, dan bahasa browser. Jangan sertakan data pribadi kecuali Anda memang ingin membagikannya.",
+          reasonLabel: "Mengapa Anda menghapusnya?",
+          chooseOne: "Pilih satu",
+          reasonNotEnough: "Tidak memblokir cukup banyak YouTube Mix",
+          reasonBlockedIncorrectly: "Memblokir atau mengubah sesuatu secara keliru",
+          reasonLayoutLanguage: "Tidak berfungsi pada tata letak atau bahasa YouTube saya",
+          reasonConfiguration: "Konfigurasinya membingungkan",
+          reasonBugSlowdown: "Menyebabkan bug, perlambatan, atau masalah kompatibilitas",
+          reasonNoLongerNeeded: "Saya tidak membutuhkannya lagi",
+          reasonPrivacyPermissions: "Kekhawatiran privasi atau izin",
+          reasonOther: "Lainnya",
+          detailsLabel: "Apa yang terjadi atau apa yang Anda harapkan?",
+          detailsHelp: "Opsional. Satu atau dua kalimat sudah cukup.",
+          featureLabel: "Fitur apa yang akan membuat Anda mencobanya lagi?",
+          featureHelp: "Opsional.",
+          contactLabel: "Alamat balasan",
+          contactHelp: "Opsional. Isi hanya jika Anda ingin mendapat balasan.",
+          submit: "Kirim masukan",
+          status: "Masukan diproses oleh Formspree.",
+          footerSource: "Sumber"
+        },
+        ko: {
+          pageTitle: "YouTube Mix Blocker 피드백",
+          metaDescription: "YouTube Mix Blocker 제거 후 선택적으로 남기는 피드백입니다.",
+          brandHomeLabel: "Oleksandr Molodchyk 홈",
+          navLabel: "기본 탐색",
+          navProjects: "프로젝트",
+          navNow: "현재",
+          navAbout: "소개",
+          navContact: "연락처",
+          headline: "확장 프로그램 개선에 도움을 주세요",
+          intro: "YouTube Mix Blocker가 기대에 맞지 않았다면 짧은 메모만으로도 충분합니다. 이 양식은 선택 사항이며 연락처 정보가 필요하지 않습니다.",
+          privacyNote: "확장 프로그램은 제거 후 출처, 버전, 브라우저 언어라는 일반 매개변수만 포함해 이 페이지를 엽니다. 의도적으로 공유하려는 경우가 아니라면 개인 정보를 포함하지 마세요.",
+          reasonLabel: "왜 제거하셨나요?",
+          chooseOne: "하나 선택",
+          reasonNotEnough: "YouTube Mix를 충분히 차단하지 못했습니다",
+          reasonBlockedIncorrectly: "무언가를 잘못 차단하거나 변경했습니다",
+          reasonLayoutLanguage: "내 YouTube 레이아웃이나 언어에서 작동하지 않았습니다",
+          reasonConfiguration: "설정하기 어려웠습니다",
+          reasonBugSlowdown: "버그, 속도 저하 또는 호환성 문제가 있었습니다",
+          reasonNoLongerNeeded: "더 이상 필요하지 않습니다",
+          reasonPrivacyPermissions: "개인정보 또는 권한이 걱정됩니다",
+          reasonOther: "기타",
+          detailsLabel: "무슨 일이 있었거나 무엇을 기대하셨나요?",
+          detailsHelp: "선택 사항입니다. 한두 문장이면 충분합니다.",
+          featureLabel: "어떤 기능이 있으면 다시 사용해 보시겠어요?",
+          featureHelp: "선택 사항입니다.",
+          contactLabel: "답장 받을 주소",
+          contactHelp: "선택 사항입니다. 답장을 원할 때만 입력하세요.",
+          submit: "피드백 보내기",
+          status: "피드백은 Formspree에서 처리됩니다.",
+          footerSource: "소스"
+        },
+        pl: {
+          pageTitle: "Opinia o YouTube Mix Blocker",
+          metaDescription: "Opcjonalna opinia po odinstalowaniu YouTube Mix Blocker.",
+          brandHomeLabel: "Strona główna Oleksandra Molodchyka",
+          navLabel: "Główna nawigacja",
+          navProjects: "Projekty",
+          navNow: "Teraz",
+          navAbout: "O mnie",
+          navContact: "Kontakt",
+          headline: "Pomóż ulepszyć rozszerzenie",
+          intro: "Jeśli YouTube Mix Blocker nie spełnił oczekiwań, wystarczy krótka notatka. Ten formularz jest opcjonalny i nie wymaga danych kontaktowych.",
+          privacyNote: "Rozszerzenie otwiera tę stronę po odinstalowaniu tylko z ogólnymi parametrami źródła, wersji i języka przeglądarki. Nie podawaj danych osobowych, chyba że świadomie chcesz je udostępnić.",
+          reasonLabel: "Dlaczego odinstalowano rozszerzenie?",
+          chooseOne: "Wybierz jedną opcję",
+          reasonNotEnough: "Nie blokowało wystarczająco wielu YouTube Mixów",
+          reasonBlockedIncorrectly: "Coś było błędnie blokowane lub zmieniane",
+          reasonLayoutLanguage: "Nie działało z moim układem lub językiem YouTube",
+          reasonConfiguration: "Konfiguracja była myląca",
+          reasonBugSlowdown: "Powodowało błąd, spowolnienie lub problem ze zgodnością",
+          reasonNoLongerNeeded: "Nie jest mi już potrzebne",
+          reasonPrivacyPermissions: "Obawy dotyczące prywatności lub uprawnień",
+          reasonOther: "Inne",
+          detailsLabel: "Co się stało albo czego oczekiwano?",
+          detailsHelp: "Opcjonalnie. Wystarczy jedno lub dwa zdania.",
+          featureLabel: "Jaka funkcja zachęciłaby do ponownej próby?",
+          featureHelp: "Opcjonalnie.",
+          contactLabel: "Adres do odpowiedzi",
+          contactHelp: "Opcjonalnie. Podaj tylko, jeśli chcesz otrzymać odpowiedź.",
+          submit: "Wyślij opinię",
+          status: "Opinia jest obsługiwana przez Formspree.",
+          footerSource: "Źródło"
+        },
+        pt_BR: {
+          pageTitle: "Feedback do YouTube Mix Blocker",
+          metaDescription: "Feedback opcional após desinstalar o YouTube Mix Blocker.",
+          brandHomeLabel: "Página inicial de Oleksandr Molodchyk",
+          navLabel: "Navegação principal",
+          navProjects: "Projetos",
+          navNow: "Agora",
+          navAbout: "Sobre",
+          navContact: "Contato",
+          headline: "Ajude a melhorar a extensão",
+          intro: "Se o YouTube Mix Blocker não atendeu às suas expectativas, uma nota curta já ajuda. Este formulário é opcional e não exige informações de contato.",
+          privacyNote: "A extensão abre esta página após a desinstalação apenas com parâmetros genéricos de origem, versão e idioma do navegador. Não inclua dados pessoais, a menos que queira compartilhá-los intencionalmente.",
+          reasonLabel: "Por que você desinstalou?",
+          chooseOne: "Escolha uma opção",
+          reasonNotEnough: "Não bloqueou YouTube Mixes suficientes",
+          reasonBlockedIncorrectly: "Bloqueou ou alterou algo incorretamente",
+          reasonLayoutLanguage: "Não funcionou no meu layout ou idioma do YouTube",
+          reasonConfiguration: "Era confuso de configurar",
+          reasonBugSlowdown: "Causou bug, lentidão ou problema de compatibilidade",
+          reasonNoLongerNeeded: "Não preciso mais",
+          reasonPrivacyPermissions: "Preocupação com privacidade ou permissões",
+          reasonOther: "Outro",
+          detailsLabel: "O que aconteceu ou o que você esperava?",
+          detailsHelp: "Opcional. Uma ou duas frases bastam.",
+          featureLabel: "Qual recurso faria você tentar de novo?",
+          featureHelp: "Opcional.",
+          contactLabel: "Endereço para resposta",
+          contactHelp: "Opcional. Inclua apenas se quiser uma resposta.",
+          submit: "Enviar feedback",
+          status: "O feedback é processado pelo Formspree.",
+          footerSource: "Código-fonte"
+        },
+        pt_PT: {
+          pageTitle: "Feedback do YouTube Mix Blocker",
+          metaDescription: "Feedback opcional após desinstalar o YouTube Mix Blocker.",
+          brandHomeLabel: "Página inicial de Oleksandr Molodchyk",
+          navLabel: "Navegação principal",
+          navProjects: "Projetos",
+          navNow: "Agora",
+          navAbout: "Sobre",
+          navContact: "Contacto",
+          headline: "Ajude a melhorar a extensão",
+          intro: "Se o YouTube Mix Blocker não correspondeu às suas expectativas, uma nota curta é suficiente. Este formulário é opcional e não exige dados de contacto.",
+          privacyNote: "A extensão abre esta página após a desinstalação apenas com parâmetros genéricos de origem, versão e idioma do navegador. Não inclua dados pessoais, a menos que os queira partilhar intencionalmente.",
+          reasonLabel: "Porque desinstalou?",
+          chooseOne: "Escolha uma opção",
+          reasonNotEnough: "Não bloqueou YouTube Mixes suficientes",
+          reasonBlockedIncorrectly: "Bloqueou ou alterou algo incorretamente",
+          reasonLayoutLanguage: "Não funcionou com o meu esquema ou idioma do YouTube",
+          reasonConfiguration: "Era confuso de configurar",
+          reasonBugSlowdown: "Causou um erro, lentidão ou problema de compatibilidade",
+          reasonNoLongerNeeded: "Já não preciso",
+          reasonPrivacyPermissions: "Preocupação com privacidade ou permissões",
+          reasonOther: "Outro",
+          detailsLabel: "O que aconteceu ou o que esperava?",
+          detailsHelp: "Opcional. Uma ou duas frases chegam.",
+          featureLabel: "Que funcionalidade o faria experimentar de novo?",
+          featureHelp: "Opcional.",
+          contactLabel: "Endereço para resposta",
+          contactHelp: "Opcional. Inclua apenas se quiser uma resposta.",
+          submit: "Enviar feedback",
+          status: "O feedback é processado pelo Formspree.",
+          footerSource: "Código-fonte"
+        },
+        ru: {
+          pageTitle: "Отзыв о YouTube Mix Blocker",
+          metaDescription: "Необязательный отзыв после удаления YouTube Mix Blocker.",
+          brandHomeLabel: "Главная страница Oleksandr Molodchyk",
+          navLabel: "Основная навигация",
+          navProjects: "Проекты",
+          navNow: "Сейчас",
+          navAbout: "О проекте",
+          navContact: "Контакт",
+          headline: "Помогите улучшить расширение",
+          intro: "Если YouTube Mix Blocker не оправдал ожиданий, достаточно короткой заметки. Эта форма необязательна и не требует контактных данных.",
+          privacyNote: "Расширение открывает эту страницу после удаления только с общими параметрами источника, версии и языка браузера. Не указывайте персональные данные, если не хотите намеренно ими поделиться.",
+          reasonLabel: "Почему вы удалили расширение?",
+          chooseOne: "Выберите вариант",
+          reasonNotEnough: "Оно блокировало недостаточно YouTube Mixes",
+          reasonBlockedIncorrectly: "Оно ошибочно блокировало или изменяло что-то",
+          reasonLayoutLanguage: "Оно не работало с моим интерфейсом или языком YouTube",
+          reasonConfiguration: "Настройка была непонятной",
+          reasonBugSlowdown: "Оно вызывало ошибку, замедление или проблему совместимости",
+          reasonNoLongerNeeded: "Оно мне больше не нужно",
+          reasonPrivacyPermissions: "Вопросы приватности или разрешений",
+          reasonOther: "Другое",
+          detailsLabel: "Что произошло или чего вы ожидали?",
+          detailsHelp: "Необязательно. Достаточно одного-двух предложений.",
+          featureLabel: "Какая функция заставила бы вас попробовать снова?",
+          featureHelp: "Необязательно.",
+          contactLabel: "Адрес для ответа",
+          contactHelp: "Необязательно. Укажите только если хотите получить ответ.",
+          submit: "Отправить отзыв",
+          status: "Отзыв обрабатывается через Formspree.",
+          footerSource: "Источник"
+        },
+        sv: {
+          pageTitle: "Feedback för YouTube Mix Blocker",
+          metaDescription: "Frivillig feedback efter avinstallation av YouTube Mix Blocker.",
+          brandHomeLabel: "Oleksandr Molodchyks startsida",
+          navLabel: "Huvudnavigering",
+          navProjects: "Projekt",
+          navNow: "Nu",
+          navAbout: "Om",
+          navContact: "Kontakt",
+          headline: "Hjälp till att förbättra tillägget",
+          intro: "Om YouTube Mix Blocker inte träffade rätt räcker en kort kommentar. Formuläret är frivilligt och kräver inga kontaktuppgifter.",
+          privacyNote: "Tillägget öppnar den här sidan efter avinstallation med endast generiska parametrar för källa, version och webbläsarspråk. Ange inga personuppgifter om du inte avsiktligt vill dela dem.",
+          reasonLabel: "Varför avinstallerade du?",
+          chooseOne: "Välj ett alternativ",
+          reasonNotEnough: "Det blockerade inte tillräckligt många YouTube Mixes",
+          reasonBlockedIncorrectly: "Det blockerade eller ändrade något felaktigt",
+          reasonLayoutLanguage: "Det fungerade inte med min YouTube-layout eller mitt språk",
+          reasonConfiguration: "Det var förvirrande att konfigurera",
+          reasonBugSlowdown: "Det orsakade en bugg, långsamhet eller kompatibilitetsproblem",
+          reasonNoLongerNeeded: "Jag behöver det inte längre",
+          reasonPrivacyPermissions: "Integritets- eller behörighetsfråga",
+          reasonOther: "Annat",
+          detailsLabel: "Vad hände eller vad förväntade du dig i stället?",
+          detailsHelp: "Frivilligt. En eller två meningar räcker.",
+          featureLabel: "Vilken funktion skulle få dig att prova igen?",
+          featureHelp: "Frivilligt.",
+          contactLabel: "Svarsadress",
+          contactHelp: "Frivilligt. Ange bara om du vill ha ett svar.",
+          submit: "Skicka feedback",
+          status: "Feedback behandlas av Formspree.",
+          footerSource: "Källa"
+        },
+        tr: {
+          pageTitle: "YouTube Mix Blocker geri bildirimi",
+          metaDescription: "YouTube Mix Blocker kaldırıldıktan sonra isteğe bağlı geri bildirim.",
+          brandHomeLabel: "Oleksandr Molodchyk ana sayfası",
+          navLabel: "Ana gezinme",
+          navProjects: "Projeler",
+          navNow: "Şimdi",
+          navAbout: "Hakkında",
+          navContact: "İletişim",
+          headline: "Uzantıyı geliştirmeye yardım edin",
+          intro: "YouTube Mix Blocker beklentinizi karşılamadıysa kısa bir not yeterlidir. Bu form isteğe bağlıdır ve iletişim bilgisi gerektirmez.",
+          privacyNote: "Uzantı, kaldırıldıktan sonra bu sayfayı yalnızca genel kaynak, sürüm ve tarayıcı dili parametreleriyle açar. Bilerek paylaşmak istemiyorsanız kişisel veri eklemeyin.",
+          reasonLabel: "Neden kaldırdınız?",
+          chooseOne: "Birini seçin",
+          reasonNotEnough: "Yeterince YouTube Mix engellemedi",
+          reasonBlockedIncorrectly: "Bir şeyi yanlış engelledi veya değiştirdi",
+          reasonLayoutLanguage: "YouTube düzenimde veya dilimde çalışmadı",
+          reasonConfiguration: "Yapılandırması kafa karıştırıcıydı",
+          reasonBugSlowdown: "Hata, yavaşlama veya uyumluluk sorunu oluşturdu",
+          reasonNoLongerNeeded: "Artık ihtiyacım yok",
+          reasonPrivacyPermissions: "Gizlilik veya izin endişesi",
+          reasonOther: "Diğer",
+          detailsLabel: "Ne oldu veya bunun yerine ne bekliyordunuz?",
+          detailsHelp: "İsteğe bağlı. Bir iki cümle yeterlidir.",
+          featureLabel: "Hangi özellik tekrar denemenizi sağlar?",
+          featureHelp: "İsteğe bağlı.",
+          contactLabel: "Yanıt adresi",
+          contactHelp: "İsteğe bağlı. Yalnızca yanıt istiyorsanız ekleyin.",
+          submit: "Geri bildirim gönder",
+          status: "Geri bildirim Formspree tarafından işlenir.",
+          footerSource: "Kaynak"
+        },
+        vi: {
+          pageTitle: "Phản hồi về YouTube Mix Blocker",
+          metaDescription: "Phản hồi tùy chọn sau khi gỡ cài đặt YouTube Mix Blocker.",
+          brandHomeLabel: "Trang chủ Oleksandr Molodchyk",
+          navLabel: "Điều hướng chính",
+          navProjects: "Dự án",
+          navNow: "Hiện tại",
+          navAbout: "Giới thiệu",
+          navContact: "Liên hệ",
+          headline: "Giúp cải thiện tiện ích",
+          intro: "Nếu YouTube Mix Blocker chưa đáp ứng kỳ vọng, một ghi chú ngắn là đủ. Biểu mẫu này là tùy chọn và không yêu cầu thông tin liên hệ.",
+          privacyNote: "Tiện ích mở trang này sau khi gỡ cài đặt chỉ với các tham số chung về nguồn, phiên bản và ngôn ngữ trình duyệt. Đừng gửi dữ liệu cá nhân trừ khi bạn chủ động muốn chia sẻ.",
+          reasonLabel: "Vì sao bạn gỡ cài đặt?",
+          chooseOne: "Chọn một lý do",
+          reasonNotEnough: "Không chặn đủ YouTube Mix",
+          reasonBlockedIncorrectly: "Chặn hoặc thay đổi nhầm thứ gì đó",
+          reasonLayoutLanguage: "Không hoạt động với bố cục hoặc ngôn ngữ YouTube của tôi",
+          reasonConfiguration: "Khó cấu hình",
+          reasonBugSlowdown: "Gây lỗi, chậm hoặc vấn đề tương thích",
+          reasonNoLongerNeeded: "Tôi không còn cần nữa",
+          reasonPrivacyPermissions: "Lo ngại về quyền riêng tư hoặc quyền truy cập",
+          reasonOther: "Khác",
+          detailsLabel: "Điều gì đã xảy ra hoặc bạn mong đợi điều gì?",
+          detailsHelp: "Tùy chọn. Một hoặc hai câu là đủ.",
+          featureLabel: "Tính năng nào sẽ khiến bạn thử lại?",
+          featureHelp: "Tùy chọn.",
+          contactLabel: "Địa chỉ nhận trả lời",
+          contactHelp: "Tùy chọn. Chỉ điền nếu bạn muốn nhận phản hồi.",
+          submit: "Gửi phản hồi",
+          status: "Phản hồi được xử lý bởi Formspree.",
+          footerSource: "Mã nguồn"
+        },
+        zh_TW: {
+          pageTitle: "YouTube Mix Blocker 意見回饋",
+          metaDescription: "解除安裝 YouTube Mix Blocker 後的選填回饋。",
+          brandHomeLabel: "Oleksandr Molodchyk 首頁",
+          navLabel: "主要導覽",
+          navProjects: "專案",
+          navNow: "近況",
+          navAbout: "關於",
+          navContact: "聯絡",
+          headline: "協助改進這個擴充功能",
+          intro: "如果 YouTube Mix Blocker 沒有符合你的期待，留下一段簡短說明就很有幫助。此表單為選填，不需要聯絡資訊。",
+          privacyNote: "擴充功能會在解除安裝後開啟此頁，只附上來源、版本和瀏覽器語言等一般參數。除非你有意分享，請不要填寫個人資料。",
+          reasonLabel: "你為什麼解除安裝？",
+          chooseOne: "選擇一項",
+          reasonNotEnough: "沒有封鎖足夠多的 YouTube Mix",
+          reasonBlockedIncorrectly: "錯誤封鎖或變更了某些內容",
+          reasonLayoutLanguage: "無法在我的 YouTube 版面或語言中運作",
+          reasonConfiguration: "設定方式令人困惑",
+          reasonBugSlowdown: "造成錯誤、變慢或相容性問題",
+          reasonNoLongerNeeded: "我不再需要它",
+          reasonPrivacyPermissions: "隱私或權限疑慮",
+          reasonOther: "其他",
+          detailsLabel: "發生了什麼事，或你原本期待什麼？",
+          detailsHelp: "選填。一兩句話即可。",
+          featureLabel: "什麼功能會讓你願意再試一次？",
+          featureHelp: "選填。",
+          contactLabel: "回覆地址",
+          contactHelp: "選填。只有在你想收到回覆時才填寫。",
+          submit: "送出回饋",
+          status: "回饋由 Formspree 處理。",
+          footerSource: "原始碼"
+        },
+        zh_CN: {
+          pageTitle: "YouTube Mix Blocker 反馈",
+          metaDescription: "卸载 YouTube Mix Blocker 后的可选反馈。",
+          brandHomeLabel: "Oleksandr Molodchyk 主页",
+          navLabel: "主导航",
+          navProjects: "项目",
+          navNow: "近况",
+          navAbout: "关于",
+          navContact: "联系",
+          headline: "帮助改进这个扩展",
+          intro: "如果 YouTube Mix Blocker 没有达到预期，留下一条简短说明就足够了。此表单为可选项，不需要联系方式。",
+          privacyNote: "扩展会在卸载后打开此页面，只带有来源、版本和浏览器语言等通用参数。除非你有意分享，请不要填写个人数据。",
+          reasonLabel: "你为什么卸载？",
+          chooseOne: "选择一项",
+          reasonNotEnough: "没有屏蔽足够多的 YouTube Mix",
+          reasonBlockedIncorrectly: "错误地屏蔽或更改了某些内容",
+          reasonLayoutLanguage: "不适用于我的 YouTube 布局或语言",
+          reasonConfiguration: "配置起来令人困惑",
+          reasonBugSlowdown: "导致错误、变慢或兼容性问题",
+          reasonNoLongerNeeded: "我不再需要它",
+          reasonPrivacyPermissions: "隐私或权限方面的担忧",
+          reasonOther: "其他",
+          detailsLabel: "发生了什么，或者你原本期待什么？",
+          detailsHelp: "可选。一两句话就够了。",
+          featureLabel: "什么功能会让你愿意再试一次？",
+          featureHelp: "可选。",
+          contactLabel: "回复地址",
+          contactHelp: "可选。只有在你想收到回复时才填写。",
+          submit: "发送反馈",
+          status: "反馈由 Formspree 处理。",
+          footerSource: "源代码"
+        },
+        fil: {
+          pageTitle: "Feedback para sa YouTube Mix Blocker",
+          metaDescription: "Opsyonal na feedback pagkatapos i-uninstall ang YouTube Mix Blocker.",
+          brandHomeLabel: "Home ni Oleksandr Molodchyk",
+          navLabel: "Pangunahing nabigasyon",
+          navProjects: "Mga proyekto",
+          navNow: "Ngayon",
+          navAbout: "Tungkol",
+          navContact: "Contact",
+          headline: "Tumulong pagandahin ang extension",
+          intro: "Kung hindi tumama ang YouTube Mix Blocker sa inaasahan mo, sapat na ang maikling tala. Opsyonal ang form na ito at hindi nangangailangan ng contact information.",
+          privacyNote: "Binubuksan ng extension ang pahinang ito pagkatapos i-uninstall gamit lang ang pangkalahatang source, version, at browser-language parameters. Huwag maglagay ng personal data maliban kung sinasadya mong ibahagi ito.",
+          reasonLabel: "Bakit mo ito in-uninstall?",
+          chooseOne: "Pumili ng isa",
+          reasonNotEnough: "Hindi sapat ang na-block na YouTube Mixes",
+          reasonBlockedIncorrectly: "May maling na-block o nabago",
+          reasonLayoutLanguage: "Hindi gumana sa aking YouTube layout o wika",
+          reasonConfiguration: "Nakakalito itong i-configure",
+          reasonBugSlowdown: "Nagdulot ito ng bug, pagbagal, o compatibility issue",
+          reasonNoLongerNeeded: "Hindi ko na ito kailangan",
+          reasonPrivacyPermissions: "Alalahanin sa privacy o permissions",
+          reasonOther: "Iba pa",
+          detailsLabel: "Ano ang nangyari o ano ang inaasahan mo?",
+          detailsHelp: "Opsyonal. Sapat na ang isa o dalawang pangungusap.",
+          featureLabel: "Anong feature ang magpapasubok sa iyo ulit?",
+          featureHelp: "Opsyonal.",
+          contactLabel: "Address para sa reply",
+          contactHelp: "Opsyonal. Ilagay lang ito kung gusto mo ng reply.",
+          submit: "Ipadala ang feedback",
+          status: "Pinoproseso ang feedback sa Formspree.",
+          footerSource: "Source"
+        },
+        hi: {
+          pageTitle: "YouTube Mix Blocker प्रतिक्रिया",
+          metaDescription: "YouTube Mix Blocker हटाने के बाद वैकल्पिक प्रतिक्रिया।",
+          brandHomeLabel: "Oleksandr Molodchyk होम",
+          navLabel: "मुख्य नेविगेशन",
+          navProjects: "प्रोजेक्ट",
+          navNow: "अभी",
+          navAbout: "परिचय",
+          navContact: "संपर्क",
+          headline: "एक्सटेंशन को बेहतर बनाने में मदद करें",
+          intro: "अगर YouTube Mix Blocker आपकी अपेक्षा पर खरा नहीं उतरा, तो एक छोटा नोट काफी है। यह फ़ॉर्म वैकल्पिक है और संपर्क जानकारी की आवश्यकता नहीं है।",
+          privacyNote: "एक्सटेंशन अनइंस्टॉल होने के बाद यह पेज केवल सामान्य source, version और browser-language पैरामीटर के साथ खोलता है। व्यक्तिगत डेटा शामिल न करें, जब तक आप जानबूझकर उसे साझा नहीं करना चाहते।",
+          reasonLabel: "आपने इसे क्यों हटाया?",
+          chooseOne: "एक विकल्प चुनें",
+          reasonNotEnough: "इसने पर्याप्त YouTube Mixes ब्लॉक नहीं किए",
+          reasonBlockedIncorrectly: "इसने कुछ गलत तरीके से ब्लॉक या बदल दिया",
+          reasonLayoutLanguage: "यह मेरे YouTube लेआउट या भाषा पर काम नहीं किया",
+          reasonConfiguration: "इसे कॉन्फ़िगर करना उलझनभरा था",
+          reasonBugSlowdown: "इससे बग, धीमापन या compatibility समस्या हुई",
+          reasonNoLongerNeeded: "अब मुझे इसकी जरूरत नहीं है",
+          reasonPrivacyPermissions: "गोपनीयता या permission की चिंता",
+          reasonOther: "अन्य",
+          detailsLabel: "क्या हुआ या आप क्या अपेक्षा कर रहे थे?",
+          detailsHelp: "वैकल्पिक। एक या दो वाक्य काफी हैं।",
+          featureLabel: "कौन-सा फीचर आपको इसे फिर आजमाने के लिए प्रेरित करेगा?",
+          featureHelp: "वैकल्पिक।",
+          contactLabel: "उत्तर के लिए पता",
+          contactHelp: "वैकल्पिक। केवल तभी जोड़ें जब आप उत्तर चाहते हैं।",
+          submit: "प्रतिक्रिया भेजें",
+          status: "प्रतिक्रिया Formspree द्वारा संसाधित की जाती है।",
+          footerSource: "स्रोत"
+        },
+        it: {
+          pageTitle: "Feedback su YouTube Mix Blocker",
+          metaDescription: "Feedback facoltativo dopo la disinstallazione di YouTube Mix Blocker.",
+          brandHomeLabel: "Home di Oleksandr Molodchyk",
+          navLabel: "Navigazione principale",
+          navProjects: "Progetti",
+          navNow: "Ora",
+          navAbout: "Informazioni",
+          navContact: "Contatto",
+          headline: "Aiuta a migliorare l'estensione",
+          intro: "Se YouTube Mix Blocker non ha soddisfatto le aspettative, basta una breve nota. Questo modulo è facoltativo e non richiede informazioni di contatto.",
+          privacyNote: "L'estensione apre questa pagina dopo la disinstallazione solo con parametri generici di origine, versione e lingua del browser. Non inserire dati personali a meno che tu voglia condividerli intenzionalmente.",
+          reasonLabel: "Perché hai disinstallato?",
+          chooseOne: "Scegli un'opzione",
+          reasonNotEnough: "Non bloccava abbastanza YouTube Mixes",
+          reasonBlockedIncorrectly: "Bloccava o modificava qualcosa in modo errato",
+          reasonLayoutLanguage: "Non funzionava con il mio layout o la mia lingua di YouTube",
+          reasonConfiguration: "Era confusa da configurare",
+          reasonBugSlowdown: "Causava bug, rallentamenti o problemi di compatibilità",
+          reasonNoLongerNeeded: "Non mi serve più",
+          reasonPrivacyPermissions: "Preoccupazione per privacy o autorizzazioni",
+          reasonOther: "Altro",
+          detailsLabel: "Che cosa è successo o che cosa ti aspettavi?",
+          detailsHelp: "Facoltativo. Bastano una o due frasi.",
+          featureLabel: "Quale funzione ti farebbe riprovare?",
+          featureHelp: "Facoltativo.",
+          contactLabel: "Indirizzo per la risposta",
+          contactHelp: "Facoltativo. Inseriscilo solo se vuoi una risposta.",
+          submit: "Invia feedback",
+          status: "Il feedback viene gestito da Formspree.",
+          footerSource: "Sorgente"
+        },
+        ja: {
+          pageTitle: "YouTube Mix Blocker フィードバック",
+          metaDescription: "YouTube Mix Blocker のアンインストール後に送れる任意のフィードバックです。",
+          brandHomeLabel: "Oleksandr Molodchyk ホーム",
+          navLabel: "メインナビゲーション",
+          navProjects: "プロジェクト",
+          navNow: "現在",
+          navAbout: "概要",
+          navContact: "連絡先",
+          headline: "拡張機能の改善にご協力ください",
+          intro: "YouTube Mix Blocker が期待どおりでなかった場合は、短いメモだけでも十分です。このフォームは任意で、連絡先情報は不要です。",
+          privacyNote: "拡張機能はアンインストール後、このページを source、version、ブラウザ言語の一般的なパラメータだけで開きます。意図して共有する場合を除き、個人情報は入力しないでください。",
+          reasonLabel: "アンインストールした理由は何ですか？",
+          chooseOne: "1つ選択",
+          reasonNotEnough: "十分な数の YouTube Mix をブロックしなかった",
+          reasonBlockedIncorrectly: "何かを誤ってブロックまたは変更した",
+          reasonLayoutLanguage: "自分の YouTube レイアウトまたは言語で動作しなかった",
+          reasonConfiguration: "設定が分かりにくかった",
+          reasonBugSlowdown: "バグ、遅延、互換性の問題が発生した",
+          reasonNoLongerNeeded: "もう必要ない",
+          reasonPrivacyPermissions: "プライバシーまたは権限が気になった",
+          reasonOther: "その他",
+          detailsLabel: "何が起きましたか、または何を期待していましたか？",
+          detailsHelp: "任意です。1、2文で十分です。",
+          featureLabel: "どの機能があればもう一度試したいですか？",
+          featureHelp: "任意です。",
+          contactLabel: "返信先",
+          contactHelp: "任意です。返信を希望する場合のみ入力してください。",
+          submit: "フィードバックを送信",
+          status: "フィードバックは Formspree によって処理されます。",
+          footerSource: "ソース"
+        },
+        ms: {
+          pageTitle: "Maklum balas YouTube Mix Blocker",
+          metaDescription: "Maklum balas pilihan selepas menyahpasang YouTube Mix Blocker.",
+          brandHomeLabel: "Laman utama Oleksandr Molodchyk",
+          navLabel: "Navigasi utama",
+          navProjects: "Projek",
+          navNow: "Kini",
+          navAbout: "Tentang",
+          navContact: "Hubungi",
+          headline: "Bantu perbaiki sambungan ini",
+          intro: "Jika YouTube Mix Blocker tidak menepati jangkaan, satu nota ringkas sudah memadai. Borang ini pilihan dan tidak memerlukan maklumat hubungan.",
+          privacyNote: "Sambungan membuka halaman ini selepas dinyahpasang dengan hanya parameter umum sumber, versi dan bahasa pelayar. Jangan sertakan data peribadi kecuali anda sengaja mahu berkongsinya.",
+          reasonLabel: "Mengapa anda menyahpasang?",
+          chooseOne: "Pilih satu",
+          reasonNotEnough: "Ia tidak menyekat cukup banyak YouTube Mix",
+          reasonBlockedIncorrectly: "Ia menyekat atau mengubah sesuatu dengan salah",
+          reasonLayoutLanguage: "Ia tidak berfungsi dengan susun atur atau bahasa YouTube saya",
+          reasonConfiguration: "Ia mengelirukan untuk dikonfigurasi",
+          reasonBugSlowdown: "Ia menyebabkan pepijat, kelembapan atau isu keserasian",
+          reasonNoLongerNeeded: "Saya tidak memerlukannya lagi",
+          reasonPrivacyPermissions: "Kebimbangan privasi atau kebenaran",
+          reasonOther: "Lain-lain",
+          detailsLabel: "Apa yang berlaku atau apa yang anda jangkakan?",
+          detailsHelp: "Pilihan. Satu atau dua ayat sudah mencukupi.",
+          featureLabel: "Ciri apakah yang akan membuat anda mencubanya lagi?",
+          featureHelp: "Pilihan.",
+          contactLabel: "Alamat balasan",
+          contactHelp: "Pilihan. Sertakan hanya jika anda mahu balasan.",
+          submit: "Hantar maklum balas",
+          status: "Maklum balas diproses oleh Formspree.",
+          footerSource: "Sumber"
+        },
+        nl: {
+          pageTitle: "Feedback over YouTube Mix Blocker",
+          metaDescription: "Optionele feedback na het verwijderen van YouTube Mix Blocker.",
+          brandHomeLabel: "Startpagina van Oleksandr Molodchyk",
+          navLabel: "Hoofdnavigatie",
+          navProjects: "Projecten",
+          navNow: "Nu",
+          navAbout: "Over",
+          navContact: "Contact",
+          headline: "Help de extensie verbeteren",
+          intro: "Als YouTube Mix Blocker niet voldeed, is een korte opmerking genoeg. Dit formulier is optioneel en vraagt geen contactgegevens.",
+          privacyNote: "De extensie opent deze pagina na verwijdering alleen met algemene parameters voor bron, versie en browsertaal. Vul geen persoonlijke gegevens in tenzij je die bewust wilt delen.",
+          reasonLabel: "Waarom heb je de extensie verwijderd?",
+          chooseOne: "Kies een optie",
+          reasonNotEnough: "Er werden niet genoeg YouTube Mixes geblokkeerd",
+          reasonBlockedIncorrectly: "Er werd iets onterecht geblokkeerd of gewijzigd",
+          reasonLayoutLanguage: "Het werkte niet met mijn YouTube-indeling of taal",
+          reasonConfiguration: "Het was verwarrend om in te stellen",
+          reasonBugSlowdown: "Het veroorzaakte een fout, vertraging of compatibiliteitsprobleem",
+          reasonNoLongerNeeded: "Ik heb het niet meer nodig",
+          reasonPrivacyPermissions: "Zorgen over privacy of machtigingen",
+          reasonOther: "Anders",
+          detailsLabel: "Wat gebeurde er of wat verwachtte je?",
+          detailsHelp: "Optioneel. Een of twee zinnen is genoeg.",
+          featureLabel: "Welke functie zou je opnieuw laten proberen?",
+          featureHelp: "Optioneel.",
+          contactLabel: "Antwoordadres",
+          contactHelp: "Optioneel. Alleen invullen als je een antwoord wilt.",
+          submit: "Feedback verzenden",
+          status: "Feedback wordt verwerkt door Formspree.",
+          footerSource: "Bron"
+        },
+        ro: {
+          pageTitle: "Feedback pentru YouTube Mix Blocker",
+          metaDescription: "Feedback opțional după dezinstalarea YouTube Mix Blocker.",
+          brandHomeLabel: "Pagina principală Oleksandr Molodchyk",
+          navLabel: "Navigare principală",
+          navProjects: "Proiecte",
+          navNow: "Acum",
+          navAbout: "Despre",
+          navContact: "Contact",
+          headline: "Ajută la îmbunătățirea extensiei",
+          intro: "Dacă YouTube Mix Blocker nu a fost ce te așteptai, o notă scurtă este suficientă. Formularul este opțional și nu necesită date de contact.",
+          privacyNote: "Extensia deschide această pagină după dezinstalare doar cu parametri generici pentru sursă, versiune și limba browserului. Nu include date personale decât dacă vrei intenționat să le distribui.",
+          reasonLabel: "De ce ai dezinstalat?",
+          chooseOne: "Alege o opțiune",
+          reasonNotEnough: "Nu a blocat suficiente YouTube Mixes",
+          reasonBlockedIncorrectly: "A blocat sau a schimbat ceva incorect",
+          reasonLayoutLanguage: "Nu a funcționat cu aspectul sau limba mea YouTube",
+          reasonConfiguration: "A fost confuz de configurat",
+          reasonBugSlowdown: "A cauzat o eroare, încetinire sau problemă de compatibilitate",
+          reasonNoLongerNeeded: "Nu mai am nevoie de el",
+          reasonPrivacyPermissions: "Îngrijorare privind confidențialitatea sau permisiunile",
+          reasonOther: "Altceva",
+          detailsLabel: "Ce s-a întâmplat sau ce te așteptai să se întâmple?",
+          detailsHelp: "Opțional. Una sau două propoziții sunt suficiente.",
+          featureLabel: "Ce funcție te-ar face să îl încerci din nou?",
+          featureHelp: "Opțional.",
+          contactLabel: "Adresă pentru răspuns",
+          contactHelp: "Opțional. Include-o doar dacă vrei un răspuns.",
+          submit: "Trimite feedback",
+          status: "Feedbackul este procesat prin Formspree.",
+          footerSource: "Sursă"
+        },
+        th: {
+          pageTitle: "ความคิดเห็นเกี่ยวกับ YouTube Mix Blocker",
+          metaDescription: "ความคิดเห็นแบบไม่บังคับหลังจากถอนการติดตั้ง YouTube Mix Blocker",
+          brandHomeLabel: "หน้าแรกของ Oleksandr Molodchyk",
+          navLabel: "การนำทางหลัก",
+          navProjects: "โปรเจกต์",
+          navNow: "ตอนนี้",
+          navAbout: "เกี่ยวกับ",
+          navContact: "ติดต่อ",
+          headline: "ช่วยปรับปรุงส่วนขยายนี้",
+          intro: "ถ้า YouTube Mix Blocker ยังไม่ตรงกับที่คุณคาดหวัง ข้อความสั้น ๆ ก็เพียงพอแล้ว แบบฟอร์มนี้เป็นทางเลือกและไม่ต้องใช้ข้อมูลติดต่อ",
+          privacyNote: "ส่วนขยายจะเปิดหน้านี้หลังถอนการติดตั้ง โดยมีเพียงพารามิเตอร์ทั่วไปของแหล่งที่มา เวอร์ชัน และภาษาของเบราว์เซอร์ อย่าใส่ข้อมูลส่วนตัวเว้นแต่คุณตั้งใจจะแชร์",
+          reasonLabel: "ทำไมคุณจึงถอนการติดตั้ง?",
+          chooseOne: "เลือกหนึ่งข้อ",
+          reasonNotEnough: "บล็อก YouTube Mix ได้ไม่มากพอ",
+          reasonBlockedIncorrectly: "บล็อกหรือเปลี่ยนบางอย่างผิดพลาด",
+          reasonLayoutLanguage: "ไม่ทำงานกับเลย์เอาต์หรือภาษาของ YouTube ที่ฉันใช้",
+          reasonConfiguration: "ตั้งค่ายากหรือสับสน",
+          reasonBugSlowdown: "ทำให้เกิดบั๊ก ช้า หรือปัญหาความเข้ากันได้",
+          reasonNoLongerNeeded: "ฉันไม่ต้องการใช้อีกแล้ว",
+          reasonPrivacyPermissions: "กังวลเรื่องความเป็นส่วนตัวหรือสิทธิ์",
+          reasonOther: "อื่น ๆ",
+          detailsLabel: "เกิดอะไรขึ้น หรือคุณคาดหวังอะไรแทน?",
+          detailsHelp: "ไม่บังคับ หนึ่งหรือสองประโยคก็พอ",
+          featureLabel: "ฟีเจอร์ใดที่จะทำให้คุณลองใช้อีกครั้ง?",
+          featureHelp: "ไม่บังคับ",
+          contactLabel: "ที่อยู่สำหรับตอบกลับ",
+          contactHelp: "ไม่บังคับ ใส่เฉพาะเมื่อคุณต้องการคำตอบ",
+          submit: "ส่งความคิดเห็น",
+          status: "ความคิดเห็นจะถูกประมวลผลโดย Formspree",
+          footerSource: "ซอร์ส"
+        },
+        uk: {
+          pageTitle: "Відгук про YouTube Mix Blocker",
+          metaDescription: "Необов'язковий відгук після видалення YouTube Mix Blocker.",
+          brandHomeLabel: "Головна сторінка Oleksandr Molodchyk",
+          navLabel: "Основна навігація",
+          navProjects: "Проєкти",
+          navNow: "Зараз",
+          navAbout: "Про мене",
+          navContact: "Контакт",
+          headline: "Допоможіть покращити розширення",
+          intro: "Якщо YouTube Mix Blocker не виправдав очікувань, достатньо короткої нотатки. Ця форма необов'язкова і не потребує контактних даних.",
+          privacyNote: "Розширення відкриває цю сторінку після видалення лише із загальними параметрами джерела, версії та мови браузера. Не вказуйте персональні дані, якщо не хочете свідомо ними поділитися.",
+          reasonLabel: "Чому ви видалили розширення?",
+          chooseOne: "Оберіть варіант",
+          reasonNotEnough: "Воно блокувало недостатньо YouTube Mixes",
+          reasonBlockedIncorrectly: "Воно помилково блокувало або змінювало щось",
+          reasonLayoutLanguage: "Воно не працювало з моїм макетом або мовою YouTube",
+          reasonConfiguration: "Налаштування було незрозумілим",
+          reasonBugSlowdown: "Воно спричиняло помилку, уповільнення або проблему сумісності",
+          reasonNoLongerNeeded: "Воно мені більше не потрібне",
+          reasonPrivacyPermissions: "Питання приватності або дозволів",
+          reasonOther: "Інше",
+          detailsLabel: "Що сталося або чого ви очікували?",
+          detailsHelp: "Необов'язково. Достатньо одного-двох речень.",
+          featureLabel: "Яка функція змусила б вас спробувати знову?",
+          featureHelp: "Необов'язково.",
+          contactLabel: "Адреса для відповіді",
+          contactHelp: "Необов'язково. Додайте лише якщо хочете отримати відповідь.",
+          submit: "Надіслати відгук",
+          status: "Відгук обробляється через Formspree.",
+          footerSource: "Джерело"
+        }
+      };
+
+      const LOCALE_ALIASES = {
+        en_AU: "en",
+        en_GB: "en",
+        en_US: "en",
+        es_419: "es",
+        pt: "pt_PT",
+        zh: "zh_CN",
+        zh_HK: "zh_TW",
+        zh_Hant: "zh_TW",
+        zh_Hant_TW: "zh_TW",
+        zh_MO: "zh_TW",
+        zh_SG: "zh_CN",
+        zh_Hans: "zh_CN",
+        zh_Hans_CN: "zh_CN"
+      };
+
+      const RTL_LOCALES = new Set(["ar"]);
+
+      function getCanonicalLocale(rawLocale) {
+        const normalizedLocale = String(rawLocale || "en").trim().replace(/-/g, "_");
+        const lowerLocale = normalizedLocale.toLowerCase();
+        const aliasKey = Object.keys(LOCALE_ALIASES).find(key => key.toLowerCase() === lowerLocale);
+
+        if (aliasKey) return LOCALE_ALIASES[aliasKey];
+        if (normalizedLocale === "en" || LOCALE_COPY[normalizedLocale]) return normalizedLocale;
+
+        const baseLanguage = lowerLocale.split("_")[0];
+        const directBase = Object.keys(LOCALE_COPY).find(key => key.toLowerCase() === baseLanguage);
+        if (directBase) return directBase;
+
+        return "en";
+      }
+
+      function setMetaContent(selector, content) {
+        const element = document.querySelector(selector);
+        if (element) {
+          element.setAttribute("content", content);
+        }
+      }
+
       const params = new URLSearchParams(window.location.search);
+      const rawLanguage = params.get('lang') || navigator.language || 'en';
+      const locale = getCanonicalLocale(rawLanguage);
+      const copy = {
+        ...BASE_COPY,
+        ...(LOCALE_COPY[locale] || {})
+      };
+
+      document.documentElement.lang = locale.replace("_", "-");
+      document.documentElement.dir = RTL_LOCALES.has(locale) ? "rtl" : "ltr";
+      document.documentElement.dataset.feedbackLocale = locale;
+      document.title = copy.pageTitle;
+      setMetaContent('meta[name="description"]', copy.metaDescription);
+      setMetaContent('meta[property="og:title"]', copy.pageTitle);
+      setMetaContent('meta[property="og:description"]', copy.metaDescription);
+
+      for (const element of document.querySelectorAll("[data-i18n]")) {
+        const key = element.dataset.i18n;
+        element.textContent = copy[key] || BASE_COPY[key] || element.textContent;
+      }
+
+      for (const element of document.querySelectorAll("[data-i18n-aria-label]")) {
+        const key = element.dataset.i18nAriaLabel;
+        element.setAttribute("aria-label", copy[key] || BASE_COPY[key] || element.getAttribute("aria-label"));
+      }
 
       document.getElementById('feedback-source').value = params.get('source') || 'chrome';
       document.getElementById('feedback-version').value = params.get('version') || '';
-      document.getElementById('feedback-language').value = params.get('lang') || navigator.language || '';
+      document.getElementById('feedback-language').value = rawLanguage;
       document.getElementById('year').textContent = `2023 - ${new Date().getFullYear()}`;
     })();
   </script>

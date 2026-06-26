@@ -47,7 +47,7 @@ The first site slice is static and GitHub Pages-compatible:
 
 There is no backend, no serverless function, no database, and no usage-metered runtime surface.
 
-The YouTube Mix Blocker uninstall page is static and posts to Formspree through `https://formspree.io/f/xykqwgqe`.
+The YouTube Mix Blocker uninstall page is static and posts to Formspree through `https://formspree.io/f/xykqwgqe`. It localizes visible form copy from the `lang` query parameter for the measured uninstall languages plus ten additional likely Chrome locales: `ar`, `ca`, `cs`, `de`, `es`, `fr`, `hr`, `id`, `ko`, `pl`, `pt_BR`, `pt_PT`, `ru`, `sv`, `tr`, `vi`, `zh_TW`, `zh_CN`, `fil`, `hi`, `it`, `ja`, `ms`, `nl`, `ro`, `th`, and `uk`, with English fallback and aliases for `en_US`, `en_GB`, and `es_419`.
 
 ## Status
 
