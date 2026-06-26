@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Optional uninstall feedback for YouTube Mix Blocker.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#f6f8fb" id="theme-color-meta">
+  <meta property="og:title" content="YouTube Mix Blocker Feedback">
+  <meta property="og:description" content="Optional uninstall feedback for YouTube Mix Blocker.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://molodchyk.com/youtube-mix-blocker/uninstall/">
+  <title>YouTube Mix Blocker Feedback</title>
+  <link rel="canonical" href="https://molodchyk.com/youtube-mix-blocker/uninstall/">
+  <script>
+    (() => {
+      try {
+        const mode = localStorage.getItem('siteThemeMode');
+        document.documentElement.dataset.themeMode = ['system', 'bright', 'dark'].includes(mode) ? mode : 'system';
+      } catch {
+        document.documentElement.dataset.themeMode = 'system';
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../styles.css?v=20260610-5">
+  <style>
+    .uninstall-main {
+      width: min(980px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 72px 0 64px;
+    }
+
+    .uninstall-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+      gap: 38px;
+      align-items: start;
+    }
+
+    .uninstall-main h1 {
+      max-width: 680px;
+      font-size: 3.8rem;
+      line-height: 1;
+    }
+
+    .uninstall-copy {
+      display: grid;
+      gap: 16px;
+    }
+
+    .uninstall-copy .intro {
+      font-size: 1.18rem;
+    }
+
+    .privacy-note {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .feedback-form {
+      display: grid;
+      gap: 16px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .field label,
+    .feedback-form legend {
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .field span,
+    .feedback-form p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .feedback-form select,
+    .feedback-form textarea,
+    .feedback-form input {
+      width: 100%;
+      min-height: 42px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--ink);
+      font: inherit;
+    }
+
+    .feedback-form textarea {
+      min-height: 112px;
+      resize: vertical;
+    }
+
+    .feedback-form button {
+      justify-self: start;
+      min-height: 42px;
+      padding: 10px 15px;
+      border: 1px solid var(--teal);
+      border-radius: 8px;
+      background: var(--teal);
+      color: var(--on-accent);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 800;
+    }
+
+    .feedback-form button:hover {
+      background: var(--teal-dark);
+    }
+
+    .feedback-form button:disabled {
+      border-color: var(--line);
+      background: var(--surface-soft);
+      color: var(--muted);
+      cursor: not-allowed;
+    }
+
+    .form-status {
+      min-height: 24px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 700;
+    }
+
+    @media (max-width: 820px) {
+      .uninstall-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .uninstall-main h1 {
+        font-size: 2.7rem;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .uninstall-main {
+        width: min(100% - 32px, 980px);
+        padding: 44px 0 52px;
+      }
+
+      .uninstall-main h1 {
+        font-size: 2.35rem;
+      }
+
+      .feedback-form {
+        padding: 18px;
+      }
+
+      .feedback-form button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Oleksandr Molodchyk home">
+      <span>OM</span>
+      <strong>Oleksandr Molodchyk</strong>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/#projects">Projects</a>
+      <a href="/#now">Now</a>
+      <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="uninstall-main">
+    <section class="uninstall-layout" aria-labelledby="feedback-title">
+      <div class="uninstall-copy">
+        <p class="eyebrow">YouTube Mix Blocker</p>
+        <h1 id="feedback-title">Help improve the extension</h1>
+        <p class="intro">
+          If YouTube Mix Blocker missed the mark, one short note is enough. This form is optional and does not require contact information.
+        </p>
+        <p class="privacy-note">
+          The extension opens this page after uninstall with only generic source, version, and browser-language parameters. Do not include personal data unless you intentionally want to share it.
+        </p>
+      </div>
+
+      <form class="feedback-form" id="feedback-form" method="POST" action="https://formspree.io/f/xykqwgqe">
+        <input type="hidden" name="_subject" value="YouTube Mix Blocker uninstall feedback">
+        <input type="hidden" name="source" id="feedback-source" value="chrome">
+        <input type="hidden" name="version" id="feedback-version" value="">
+        <input type="hidden" name="language" id="feedback-language" value="">
+
+        <div class="field">
+          <label for="reason">Why did you uninstall?</label>
+          <select id="reason" name="reason" required>
+            <option value="">Choose one</option>
+            <option value="not_enough_blocking">It did not block enough YouTube Mixes</option>
+            <option value="blocked_incorrectly">It blocked or changed something incorrectly</option>
+            <option value="layout_or_language">It did not work on my YouTube layout or language</option>
+            <option value="configuration">It was confusing to configure</option>
+            <option value="bug_or_slowdown">It caused a bug, slowdown, or compatibility issue</option>
+            <option value="no_longer_needed">I no longer need it</option>
+            <option value="privacy_or_permissions">Privacy or permission concern</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="details">What happened or what did you expect instead?</label>
+          <span>Optional. A sentence or two is enough.</span>
+          <textarea id="details" name="details" autocomplete="off"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="feature">What feature would make you try it again?</label>
+          <span>Optional.</span>
+          <textarea id="feature" name="requested_feature" autocomplete="off"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="contact">Reply address</label>
+          <span>Optional. Only include this if you want a reply.</span>
+          <input id="contact" name="reply_address" type="text" autocomplete="email">
+        </div>
+
+        <button type="submit" id="submit-button">Send feedback</button>
+        <p class="form-status" id="form-status">Feedback is processed by Formspree.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>&copy; <span id="year">2023 - 2026</span> Oleksandr Molodchyk</span>
+    <a href="https://github.com/molodchyk/molodchyk.com">Source</a>
+  </footer>
+
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+
+      document.getElementById('feedback-source').value = params.get('source') || 'chrome';
+      document.getElementById('feedback-version').value = params.get('version') || '';
+      document.getElementById('feedback-language').value = params.get('lang') || navigator.language || '';
+      document.getElementById('year').textContent = `2023 - ${new Date().getFullYear()}`;
+    })();
+  </script>
+</body>
+</html>
