@@ -1,64 +1,73 @@
 # molodchyk.com
 
-Personal brand website for Oleksandr Molodchyk.
+Public personal website for Oleksandr Molodchyk.
 
-## Original Idea
+The site is a compact home base for current software work: practical browser tools, local-first systems, and public project activity. It is intentionally static, small, and privacy-conservative.
 
-> create personal brand website molodchyk.com "I love building things" photo of me working at desk, either the live calendar integration of what I do or github integration, and localise it
+Live site: https://molodchyk.com
 
-## Product Direction
+## Public Source
 
-This should be a personal site, not a generic portfolio template.
+This repository is the public source for `molodchyk.com`. It may host small project-specific pages, but it is not the source tree for every project linked from the site.
 
-First impression:
+Browser extension code is kept in separate repositories, for example:
 
-- a real photo of me working at a desk
-- the line: "I love building things"
-- current projects and work in progress
-- GitHub activity or a carefully sanitized current-focus feed
-- localized content
+- YouTube Mix Blocker: https://github.com/molodchyk/YouTubeMixBlocker
 
-## First Version
+The website and browser extensions are separate projects with separate release surfaces.
 
-The first version should probably prioritize GitHub/project integration over live calendar integration. Calendar data can accidentally expose schedule, availability, locations, meeting names, and personal routines. If a calendar-like section exists, it should publish only manually approved or sanitized information.
+## What This Contains
 
-## Planned Sections
+- A localized homepage with project cards, current-focus copy, contact links, and public GitHub repository cards.
+- A YouTube Mix Blocker uninstall feedback page at `/youtube-mix-blocker/uninstall/`.
+- Static assets and no-build JavaScript/CSS modules.
+- Public architecture and maintenance notes in `docs/`.
 
-- Home
-- Projects
-- Now
-- About
-- Contact
+## Architecture
 
-## Related Projects
+This is a no-build GitHub Pages site. Source files are served directly.
 
-- Defense Against Distractions
-- Defense Against Distractions Windows
-
-## Current Implementation
-
-The first site slice is static and GitHub Pages-compatible:
-
-- `index.html` remains the public homepage URL and owns the semantic page structure.
-- `site.js` is a thin ES module entry that initializes `pages/home/`.
-- `styles.css` is a thin CSS entry that imports shared styles and homepage styles.
-- `scripts/` contains shared app, platform, feature, and validation modules.
+- `index.html` is the public homepage entry.
+- `site.js` is a thin ES module entry for the homepage.
+- `styles.css` is a thin CSS entry that imports shared and page-owned styles.
 - `pages/home/` owns homepage copy, initialization, and page-specific styles.
-- `youtube-mix-blocker/uninstall/` owns the optional YouTube Mix Blocker uninstall feedback page, including page-specific styles, localized copy, query-parameter normalization, and Formspree field wiring.
-- `assets/hero-workspace.png` is a temporary generated workspace image. Replace it with a real desk photo when available.
-- `docs/website-modularization-playbook.md` records the target architecture, file-size budgets, folder-density budgets, and migration rules for keeping the site maintainable as it grows.
+- `scripts/app/` owns shared page behavior such as language and theme switching.
+- `scripts/features/github-repos/` owns public GitHub repository loading and rendering.
+- `scripts/platform/` owns small browser/platform helpers.
+- `youtube-mix-blocker/uninstall/` owns the uninstall feedback page, its localized copy, query-parameter normalization, form field wiring, and page-specific styles.
+- `docs/website-modularization-playbook.md` defines the target structure, file-size budgets, folder-density budgets, and migration rules.
 
-There is no backend, no serverless function, no database, and no usage-metered runtime surface.
+The public URL structure is part of the contract. Do not move deployed paths without updating the GitHub Pages workflow and verifying the live route.
 
-The main site uses the public GitHub API in the browser with no token and no backend. It does not use analytics, ads, tracking scripts, session replay, or authenticated API calls.
+## Privacy Boundaries
 
-The YouTube Mix Blocker uninstall page is static and posts to Formspree through `https://formspree.io/f/xykqwgqe`. It localizes visible form copy from the `lang` query parameter for the measured uninstall languages plus ten additional likely Chrome locales: `ar`, `ca`, `cs`, `de`, `es`, `fr`, `hr`, `id`, `ko`, `pl`, `pt_BR`, `pt_PT`, `ru`, `sv`, `tr`, `vi`, `zh_TW`, `zh_CN`, `fil`, `hi`, `it`, `ja`, `ms`, `nl`, `ro`, `th`, and `uk`, with English fallback and aliases for `en_US`, `en_GB`, and `es_419`.
+The main site:
 
-The uninstall page only accepts generic `source`, `version`, and `lang` query parameters. Submitted hidden fields are normalized before they are sent to Formspree; no extension user IDs, install IDs, browser history, YouTube URLs, settings, counters, or page content are included.
+- uses the public GitHub API in the browser without a token;
+- has no backend, database, serverless function, or authenticated API call;
+- does not use analytics, ads, trackers, session replay, or remote executable scripts;
+- stores only local UI preferences such as language and theme in browser storage.
 
-## Checks
+The uninstall feedback page:
 
-Run the local compliance checks before publishing:
+- posts optional feedback to Formspree at `https://formspree.io/f/xykqwgqe`;
+- accepts only generic `source`, `version`, and `lang` query parameters;
+- normalizes submitted hidden fields before sending them;
+- does not include extension user IDs, install IDs, browsing history, YouTube URLs, settings, counters, or page content.
+
+Submitted feedback is user data and should be treated as private even though the Formspree endpoint is visible in the public source.
+
+## Localization
+
+The homepage currently supports English, German, and Ukrainian.
+
+The uninstall feedback page supports English fallback plus localized copy for the measured uninstall languages and likely Chrome locales documented in the page copy modules under `youtube-mix-blocker/uninstall/copy/`.
+
+Keep machine field names, endpoint URLs, and hidden form semantics stable across locales so feedback remains analyzable.
+
+## Local Checks
+
+Run the compliance checks before publishing:
 
 ```powershell
 npm run check
@@ -66,8 +75,29 @@ git diff --check
 rg -n -i "password|secret|token|api[_-]?key|client[_-]?secret|private[_-]?key|bearer |authorization|REPLACE_WITH|TODO|FIXME" .
 ```
 
-The `npm run check` script validates inline scripts, local imports and deployed asset references, locale key parity, uninstall query-parameter behavior, file-size budgets, and folder-density budgets.
+`npm run check` validates:
 
-## Status
+- inline script syntax;
+- local module, stylesheet, and deployed asset references;
+- homepage and uninstall locale key parity;
+- Formspree field-name stability;
+- uninstall query-parameter normalization;
+- file-size budgets;
+- folder-density budgets.
 
-Static MVP implemented and deployable through GitHub Pages. The current no-build module layout follows `docs/website-modularization-playbook.md` while preserving public URLs.
+## Deployment
+
+GitHub Pages deploys from `.github/workflows/pages.yml` on pushes to `main`.
+
+The workflow prepares `_site/` manually. If a new deployed top-level folder is added, the workflow must copy it explicitly.
+
+After pushing a site change, verify:
+
+- `https://molodchyk.com/`
+- `https://molodchyk.com/youtube-mix-blocker/uninstall/?source=chrome&version=1.5.4&lang=en`
+
+## Public Repo Hygiene
+
+Everything in this repository is public, including files that are not deployed.
+
+Do not commit secrets, private planning notes, raw exports, personal schedules, screenshots with sensitive browser chrome, local machine paths, or image metadata that exposes private context.
