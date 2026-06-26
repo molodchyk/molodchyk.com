@@ -15,6 +15,18 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/icon-16.png?v=20260626-1">
   <link rel="icon" type="image/png" sizes="48x48" href="assets/icon-48.png?v=20260626-1">
   <link rel="icon" type="image/png" sizes="128x128" href="assets/icon-128.png?v=20260626-1">
+  <style>
+    html[data-localization-state="pending"] body {
+      visibility: hidden;
+    }
+  </style>
+  <noscript>
+    <style>
+      html[data-localization-state="pending"] body {
+        visibility: visible;
+      }
+    </style>
+  </noscript>
   <script>
     (() => {
       try {
@@ -23,10 +35,28 @@
       } catch {
         document.documentElement.dataset.themeMode = 'system';
       }
+
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const requestedLanguage = params.get('lang') || '';
+        const baseLanguage = requestedLanguage.toLowerCase().replace('_', '-').split('-')[0];
+        if (requestedLanguage && baseLanguage !== 'en') {
+          document.documentElement.dataset.localizationState = 'pending';
+          window.setTimeout(() => {
+            if (document.documentElement.dataset.localizationState === 'pending') {
+              document.documentElement.dataset.localizationState = 'fallback';
+            }
+          }, 3000);
+        }
+      } catch {
+        document.documentElement.dataset.localizationState = 'fallback';
+      }
     })();
   </script>
+  <link rel="modulepreload" href="uninstall.js?v=20260626-2">
   <link rel="stylesheet" href="../../styles.css?v=20260626-2">
-  <link rel="stylesheet" href="uninstall.css?v=20260626-1">
+  <link rel="stylesheet" href="uninstall.css?v=20260626-2">
+  <script type="module" src="uninstall.js?v=20260626-2"></script>
 </head>
 <body>
   <header class="site-header">
@@ -76,6 +106,10 @@
         <input type="hidden" name="source" id="feedback-source" value="chrome">
         <input type="hidden" name="version" id="feedback-version" value="">
         <input type="hidden" name="language" id="feedback-language" value="">
+        <div class="form-honeypot" aria-hidden="true">
+          <label for="website">Website</label>
+          <input id="website" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+        </div>
 
         <div class="field">
           <label for="reason" data-i18n="reasonLabel">Why did you uninstall?</label>
@@ -121,6 +155,5 @@
     <a href="https://github.com/molodchyk/molodchyk.com" data-i18n="footerSource">Source</a>
   </footer>
 
-  <script type="module" src="uninstall.js?v=20260626-1"></script>
 </body>
 </html>

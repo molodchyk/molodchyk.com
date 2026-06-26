@@ -51,6 +51,7 @@ export function initializeUninstallPage() {
   applyTextCopy(copy);
   populateFeedbackFields(document, metadata);
   updateYear();
+  document.documentElement.dataset.localizationState = 'ready';
 }
 
 initializeUninstallPage();
