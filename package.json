@@ -1,0 +1,15 @@
+{
+  "name": "molodchyk.com",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "npm run check:inline-scripts && npm run check:imports && npm run check:locales && npm run test && npm run audit:file-sizes && npm run audit:folder-density",
+    "test": "node scripts/validation/test-uninstall.mjs",
+    "check:inline-scripts": "node scripts/validation/check-inline-scripts.mjs",
+    "check:imports": "node scripts/validation/check-imports.mjs",
+    "check:locales": "node scripts/validation/check-locales.mjs",
+    "audit:file-sizes": "node scripts/validation/audit-file-sizes.mjs",
+    "audit:folder-density": "node scripts/validation/audit-folder-density.mjs"
+  }
+}

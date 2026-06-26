@@ -1,0 +1,107 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 28px;
+  border-bottom: 1px solid var(--line);
+  background: var(--header-bg);
+  backdrop-filter: blur(12px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand span {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--ink);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.brand strong {
+  font-size: 0.95rem;
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+
+.main-nav a,
+.language-switcher button,
+.theme-switcher button,
+.hero-actions a,
+.contact-links a,
+.project-card-header a,
+.site-footer a {
+  min-height: 38px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.main-nav a {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 10px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.header-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.main-nav a:hover,
+.site-footer a:hover {
+  color: var(--ink);
+}
+
+.language-switcher,
+.theme-switcher {
+  display: inline-flex;
+  gap: 4px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.language-switcher button,
+.theme-switcher button {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 7px 8px;
+}
+
+.language-switcher button[aria-pressed="true"],
+.theme-switcher button[aria-pressed="true"] {
+  background: var(--teal);
+  color: var(--on-accent);
+}
+
+main {
+  overflow: hidden;
+}

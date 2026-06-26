@@ -35,6 +35,9 @@ jobs:
           cp index.html styles.css site.js CNAME _site/
           cp .nojekyll _site/.nojekyll
           cp -R assets _site/assets
+          cp -R pages _site/pages
+          cp -R scripts _site/scripts
+          cp -R styles _site/styles
           cp -R youtube-mix-blocker _site/youtube-mix-blocker
 
       - name: Upload artifact
