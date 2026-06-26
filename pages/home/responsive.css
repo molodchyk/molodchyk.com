@@ -47,6 +47,8 @@
 @media (max-width: 680px) {
   .site-header {
     position: static;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
     gap: 10px 12px;
     padding: 10px 16px;
   }
@@ -83,6 +85,8 @@
   }
 
   .header-controls {
+    justify-self: end;
+    flex-wrap: nowrap;
     gap: 6px;
   }
 
@@ -130,7 +134,21 @@
   .language-switcher button,
   .theme-switcher button {
     min-height: 30px;
-    padding: 5px 6px;
     font-size: 0.76rem;
+  }
+
+  .language-switcher button {
+    padding: 5px 6px;
+  }
+
+  .theme-switcher button {
+    width: 30px;
+    min-width: 30px;
+    padding: 0;
+  }
+
+  .theme-switcher svg {
+    width: 15px;
+    height: 15px;
   }
 }

@@ -1,6 +1,7 @@
 import { BASE_COPY, LOCALE_COPY } from './copy/index.js';
 import { getFeedbackMetadata, populateFeedbackFields } from './form.js';
 import { getCanonicalLocale, RTL_LOCALES } from './params.js';
+import { applyThemeMode, getSavedThemeMode, initializeThemeSwitcher } from '../../scripts/app/theme.js';
 
 function setMetaContent(selector, content) {
   const element = document.querySelector(selector);
@@ -29,6 +30,9 @@ function updateYear() {
 }
 
 export function initializeUninstallPage() {
+  applyThemeMode(getSavedThemeMode());
+  initializeThemeSwitcher();
+
   const params = new URLSearchParams(window.location.search);
   const metadata = getFeedbackMetadata(params, navigator.language);
   const locale = getCanonicalLocale(metadata.language);

@@ -23,7 +23,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=20260626-1">
+  <link rel="stylesheet" href="styles.css?v=20260626-2">
 </head>
 <body>
   <header class="site-header">
@@ -39,9 +39,18 @@
     </nav>
     <div class="header-controls">
       <div class="theme-switcher" aria-label="UI mode">
-        <button type="button" data-theme-choice="system" data-i18n="themeSystem" aria-pressed="true">System</button>
-        <button type="button" data-theme-choice="bright" data-i18n="themeBright" aria-pressed="false">Bright</button>
-        <button type="button" data-theme-choice="dark" data-i18n="themeDark" aria-pressed="false">Dark</button>
+        <button type="button" data-theme-choice="system" aria-pressed="true" title="System">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="5" width="16" height="12" rx="2"></rect><path d="M9 21h6"></path><path d="M12 17v4"></path></svg>
+          <span class="visually-hidden" data-i18n="themeSystem">System</span>
+        </button>
+        <button type="button" data-theme-choice="bright" aria-pressed="false" title="Bright">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+          <span class="visually-hidden" data-i18n="themeBright">Bright</span>
+        </button>
+        <button type="button" data-theme-choice="dark" aria-pressed="false" title="Dark">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.2A7.6 7.6 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2Z"></path></svg>
+          <span class="visually-hidden" data-i18n="themeDark">Dark</span>
+        </button>
       </div>
       <div class="language-switcher" aria-label="Language">
         <button type="button" data-language="en" aria-pressed="true">EN</button>
