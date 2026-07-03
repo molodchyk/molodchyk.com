@@ -13,6 +13,74 @@ const requiredFormFields = [
   'requested_feature',
   'reply_address'
 ];
+const chromeWebStoreLocales = [
+  'am',
+  'ar',
+  'az',
+  'bg',
+  'bn',
+  'ca',
+  'cs',
+  'da',
+  'de',
+  'el',
+  'en',
+  'en_AU',
+  'en_GB',
+  'en_US',
+  'es',
+  'es_419',
+  'et',
+  'eu',
+  'fa',
+  'fi',
+  'fil',
+  'fr',
+  'gu',
+  'he',
+  'hi',
+  'hr',
+  'hu',
+  'hy',
+  'id',
+  'it',
+  'ja',
+  'ka',
+  'kn',
+  'ko',
+  'lt',
+  'lv',
+  'mk',
+  'ml',
+  'mr',
+  'ms',
+  'ne',
+  'nl',
+  'no',
+  'pa',
+  'pl',
+  'pt_BR',
+  'pt_PT',
+  'ro',
+  'ru',
+  'si',
+  'sk',
+  'sl',
+  'sq',
+  'sr',
+  'sv',
+  'sw',
+  'ta',
+  'te',
+  'th',
+  'tr',
+  'uk',
+  'ur',
+  'uz',
+  'vi',
+  'zh_CN',
+  'zh_TW'
+];
 
 function compareKeys(label, reference, candidate) {
   const referenceKeys = Object.keys(reference).sort();
@@ -31,6 +99,13 @@ for (const [locale, copy] of Object.entries(translations)) {
 
 for (const [locale, copy] of Object.entries(LOCALE_COPY)) {
   compareKeys(`uninstall ${locale}`, BASE_COPY, copy);
+}
+
+const supportedUninstallLocales = new Set(['en', ...Object.keys(LOCALE_COPY)]);
+for (const locale of chromeWebStoreLocales) {
+  if (!supportedUninstallLocales.has(locale) && !LOCALE_ALIASES[locale]) {
+    errors.push(`Uninstall feedback missing Chrome Web Store locale ${locale}.`);
+  }
 }
 
 for (const [alias, target] of Object.entries(LOCALE_ALIASES)) {

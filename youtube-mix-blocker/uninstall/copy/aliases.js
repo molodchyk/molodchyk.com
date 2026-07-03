@@ -3,6 +3,7 @@ export const LOCALE_ALIASES = {
   "en_GB": "en",
   "en_US": "en",
   "es_419": "es",
+  "iw": "he",
   "pt": "pt_PT",
   "zh": "zh_CN",
   "zh_HK": "zh_TW",

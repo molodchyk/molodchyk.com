@@ -39,6 +39,16 @@ This is a no-build GitHub Pages site. Source files are served directly.
 
 The public URL structure is part of the contract. Do not move deployed paths without updating the GitHub Pages workflow and verifying the live route.
 
+## Feedback Form Provider
+
+The YouTube Mix Blocker uninstall feedback form is sent to Formspree:
+
+```text
+https://formspree.io/f/xykqwgqe
+```
+
+The form action is defined in `youtube-mix-blocker/uninstall/index.html`.
+
 ## Privacy Boundaries
 
 The main site:
@@ -53,6 +63,7 @@ The uninstall feedback page:
 - posts optional feedback to Formspree at `https://formspree.io/f/xykqwgqe`;
 - accepts only generic `source`, `version`, and `lang` query parameters;
 - normalizes submitted hidden fields before sending them;
+- stores the first sanitized uninstall metadata in `sessionStorage` so a reload without query parameters keeps the original `source`, `version`, and language for that tab/session;
 - does not include extension user IDs, install IDs, browsing history, YouTube URLs, settings, counters, or page content.
 
 Submitted feedback is user data and should be treated as private even though the Formspree endpoint is visible in the public source.
@@ -61,7 +72,7 @@ Submitted feedback is user data and should be treated as private even though the
 
 The homepage currently supports English, German, and Ukrainian.
 
-The uninstall feedback page supports English fallback plus localized copy for the measured uninstall languages and likely Chrome locales documented in the page copy modules under `youtube-mix-blocker/uninstall/copy/`.
+The uninstall feedback page supports the same 66 Chrome Web Store visible locales as the Chrome extension. English regional variants use the English base copy, and compatible browser language tags such as `es_419`, `pt`, and Chinese script or region variants are mapped through locale aliases. Right-to-left layout is enabled for Arabic, Persian, Hebrew, and Urdu.
 
 Keep machine field names, endpoint URLs, and hidden form semantics stable across locales so feedback remains analyzable.
 

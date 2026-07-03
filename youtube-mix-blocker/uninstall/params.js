@@ -1,6 +1,6 @@
 import { LOCALE_ALIASES, LOCALE_COPY } from './copy/index.js';
 
-export const RTL_LOCALES = new Set(['ar']);
+export const RTL_LOCALES = new Set(['ar', 'fa', 'he', 'ur']);
 export const ALLOWED_FEEDBACK_SOURCES = new Set(['chrome', 'firefox']);
 export const EXTENSION_VERSION_PATTERN = /^\d{1,5}(?:\.\d{1,5}){0,3}$/;
 export const LANGUAGE_TAG_PATTERN = /^[a-z]{2,3}(?:[-_][a-z0-9]{2,8}){0,2}$/i;
@@ -22,7 +22,7 @@ export function getCanonicalLocale(rawLocale, localeCopy = LOCALE_COPY, aliases 
 
 export function getSafeFeedbackSource(value) {
   const source = String(value || '').trim().toLowerCase();
-  if (!source) return 'chrome';
+  if (!source) return 'unknown';
   return ALLOWED_FEEDBACK_SOURCES.has(source) ? source : 'unknown';
 }
 

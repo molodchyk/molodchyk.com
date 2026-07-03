@@ -6,6 +6,9 @@ import { LOCALE_COPY_GROUP_3 } from './group-3.js';
 import { LOCALE_COPY_GROUP_4 } from './group-4.js';
 import { LOCALE_COPY_GROUP_5 } from './group-5.js';
 import { LOCALE_COPY_GROUP_6 } from './group-6.js';
+import { LOCALE_COPY_GROUP_7 } from './group-7.js';
+import { LOCALE_COPY_GROUP_8 } from './group-8.js';
+import { LOCALE_COPY_GROUP_9 } from './group-9.js';
 
 export const LOCALE_COPY = {
   ...LOCALE_COPY_GROUP_1,
@@ -13,7 +16,10 @@ export const LOCALE_COPY = {
   ...LOCALE_COPY_GROUP_3,
   ...LOCALE_COPY_GROUP_4,
   ...LOCALE_COPY_GROUP_5,
-  ...LOCALE_COPY_GROUP_6
+  ...LOCALE_COPY_GROUP_6,
+  ...LOCALE_COPY_GROUP_7,
+  ...LOCALE_COPY_GROUP_8,
+  ...LOCALE_COPY_GROUP_9
 };
 
 export const AVAILABLE_LOCALES = Object.keys(LOCALE_COPY);
