@@ -1,4 +1,4 @@
-import { LOCALE_ALIASES, LOCALE_COPY } from './copy/index.js';
+import { LOCALE_ALIASES, LOCALE_COPY } from './copy/index.js?v=20260703-1';
 
 export const RTL_LOCALES = new Set(['ar', 'fa', 'he', 'ur']);
 export const ALLOWED_FEEDBACK_SOURCES = new Set(['chrome', 'firefox']);

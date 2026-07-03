@@ -1,4 +1,4 @@
-import { getSafeExtensionVersion, getSafeFeedbackSource, getSafeLanguageTag } from './params.js';
+import { getSafeExtensionVersion, getSafeFeedbackSource, getSafeLanguageTag } from './params.js?v=20260703-1';
 
 const FEEDBACK_METADATA_SESSION_KEY = 'ymb.uninstall.feedbackMetadata';
 

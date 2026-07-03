@@ -1,6 +1,6 @@
-import { BASE_COPY, LOCALE_COPY } from './copy/index.js';
-import { getFeedbackMetadata, populateFeedbackFields } from './form.js';
-import { getCanonicalLocale, RTL_LOCALES } from './params.js';
+import { BASE_COPY, LOCALE_COPY } from './copy/index.js?v=20260703-1';
+import { getFeedbackMetadata, populateFeedbackFields } from './form.js?v=20260703-1';
+import { getCanonicalLocale, RTL_LOCALES } from './params.js?v=20260703-1';
 import { applyThemeMode, getSavedThemeMode, initializeThemeSwitcher } from '../../scripts/app/theme.js';
 
 function setMetaContent(selector, content) {
