@@ -38,6 +38,7 @@ jobs:
           cp -R pages _site/pages
           cp -R scripts _site/scripts
           cp -R styles _site/styles
+          cp -R motionblock _site/motionblock
           cp -R youtube-mix-blocker _site/youtube-mix-blocker
 
       - name: Upload artifact

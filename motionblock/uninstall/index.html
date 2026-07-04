@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Optional uninstall feedback for MotionBlock.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#f6f8fb" id="theme-color-meta">
+  <meta property="og:title" content="MotionBlock Feedback">
+  <meta property="og:description" content="Optional uninstall feedback for MotionBlock.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://molodchyk.com/motionblock/uninstall/">
+  <title>MotionBlock Feedback</title>
+  <link rel="canonical" href="https://molodchyk.com/motionblock/uninstall/">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icon-16.png?v=20260626-1">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/icon-48.png?v=20260626-1">
+  <link rel="icon" type="image/png" sizes="128x128" href="assets/icon-128.png?v=20260626-1">
+  <style>
+    html[data-localization-state="pending"] body {
+      visibility: hidden;
+    }
+  </style>
+  <noscript>
+    <style>
+      html[data-localization-state="pending"] body {
+        visibility: visible;
+      }
+    </style>
+  </noscript>
+  <script>
+    (() => {
+      try {
+        const mode = localStorage.getItem('siteThemeMode');
+        document.documentElement.dataset.themeMode = ['system', 'bright', 'dark'].includes(mode) ? mode : 'system';
+      } catch {
+        document.documentElement.dataset.themeMode = 'system';
+      }
+
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const requestedLanguage = params.get('lang') || '';
+        const baseLanguage = requestedLanguage.toLowerCase().replace('_', '-').split('-')[0];
+        if (requestedLanguage && baseLanguage !== 'en') {
+          document.documentElement.dataset.localizationState = 'pending';
+          window.setTimeout(() => {
+            if (document.documentElement.dataset.localizationState === 'pending') {
+              document.documentElement.dataset.localizationState = 'fallback';
+            }
+          }, 3000);
+        }
+      } catch {
+        document.documentElement.dataset.localizationState = 'fallback';
+      }
+    })();
+  </script>
+  <link rel="modulepreload" href="uninstall.js?v=20260704-1">
+  <link rel="stylesheet" href="../../styles.css?v=20260626-2">
+  <link rel="stylesheet" href="uninstall.css?v=20260626-2">
+  <script type="module" src="uninstall.js?v=20260704-1"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Oleksandr Molodchyk home" data-i18n-aria-label="brandHomeLabel">
+      <span>OM</span>
+      <strong>Oleksandr Molodchyk</strong>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation" data-i18n-aria-label="navLabel">
+      <a href="/#projects" data-i18n="navProjects">Projects</a>
+      <a href="/#now" data-i18n="navNow">Now</a>
+      <a href="/#about" data-i18n="navAbout">About</a>
+      <a href="/#contact" data-i18n="navContact">Contact</a>
+    </nav>
+    <div class="header-controls">
+      <div class="theme-switcher" aria-label="UI mode">
+        <button type="button" data-theme-choice="system" aria-pressed="true" title="System">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="5" width="16" height="12" rx="2"></rect><path d="M9 21h6"></path><path d="M12 17v4"></path></svg>
+          <span class="visually-hidden" data-i18n="themeSystem">System</span>
+        </button>
+        <button type="button" data-theme-choice="bright" aria-pressed="false" title="Bright">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+          <span class="visually-hidden" data-i18n="themeBright">Bright</span>
+        </button>
+        <button type="button" data-theme-choice="dark" aria-pressed="false" title="Dark">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.2A7.6 7.6 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2Z"></path></svg>
+          <span class="visually-hidden" data-i18n="themeDark">Dark</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="uninstall-main">
+    <section class="uninstall-layout" aria-labelledby="feedback-title">
+      <div class="uninstall-copy">
+        <p class="eyebrow">MotionBlock</p>
+        <h1 id="feedback-title" data-i18n="headline">Help improve the extension</h1>
+        <p class="intro" data-i18n="intro">
+          If MotionBlock missed the mark, one short note is enough. This form is optional and does not require contact information.
+        </p>
+        <p class="privacy-note" data-i18n="privacyNote">
+          The extension opens this page after uninstall with only generic source, version, and browser-language parameters. Do not include personal data unless you intentionally want to share it.
+        </p>
+      </div>
+
+      <form class="feedback-form" id="feedback-form" method="POST" action="https://formspree.io/f/mdaryvjp">
+        <input type="hidden" name="_subject" value="MotionBlock uninstall feedback">
+        <input type="hidden" name="source" id="feedback-source" value="unknown">
+        <input type="hidden" name="version" id="feedback-version" value="">
+        <input type="hidden" name="language" id="feedback-language" value="">
+        <div class="form-honeypot" aria-hidden="true">
+          <label for="website">Website</label>
+          <input id="website" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label for="reason" data-i18n="reasonLabel">Why did you uninstall?</label>
+          <select id="reason" name="reason" required>
+            <option value="" data-i18n="chooseOne">Choose one</option>
+            <option value="not_enough_blocking" data-i18n="reasonNotEnough">It did not block the motion or media I expected</option>
+            <option value="blocked_incorrectly" data-i18n="reasonBlockedIncorrectly">It blocked or changed something incorrectly</option>
+            <option value="site_compatibility" data-i18n="reasonSiteCompatibility">It did not work on a website I needed</option>
+            <option value="configuration" data-i18n="reasonConfiguration">It was confusing to configure</option>
+            <option value="bug_or_slowdown" data-i18n="reasonBugSlowdown">It caused a bug, slowdown, or compatibility issue</option>
+            <option value="no_longer_needed" data-i18n="reasonNoLongerNeeded">I no longer need it</option>
+            <option value="privacy_or_permissions" data-i18n="reasonPrivacyPermissions">Privacy or permission concern</option>
+            <option value="other" data-i18n="reasonOther">Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="details" data-i18n="detailsLabel">What happened or what did you expect instead?</label>
+          <span data-i18n="detailsHelp">Optional. A sentence or two is enough.</span>
+          <textarea id="details" name="details" autocomplete="off"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="feature" data-i18n="featureLabel">What feature would make you try it again?</label>
+          <span data-i18n="featureHelp">Optional.</span>
+          <textarea id="feature" name="requested_feature" autocomplete="off"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="contact" data-i18n="contactLabel">Reply address</label>
+          <span data-i18n="contactHelp">Optional. Only include this if you want a reply.</span>
+          <input id="contact" name="reply_address" type="text" autocomplete="email">
+        </div>
+
+        <button type="submit" id="submit-button" data-i18n="submit">Send feedback</button>
+        <p class="form-status" id="form-status" data-i18n="status">Feedback is processed by Formspree.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>&copy; <span id="year">2023 - 2026</span> Oleksandr Molodchyk</span>
+    <a href="https://github.com/molodchyk/molodchyk.com" data-i18n="footerSource">Source</a>
+  </footer>
+
+</body>
+</html>
